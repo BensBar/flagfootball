@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>7x7 Flag Football Trainer</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">7×7</div>
+        <div>
+          <h1>Flag Football Trainer</h1>
+          <p>8th grade to high school readiness</p>
+        </div>
+      </div>
+
+      <nav id="lessonNav"></nav>
+
+      <div class="coach-card">
+        <h3>Coach Mode</h3>
+        <p>Use narration, pause the animation, then replay each concept until it sticks.</p>
+        <button id="narrateBtn">Narrate Lesson</button>
+        <button id="stopNarrationBtn" class="secondary">Stop</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">High School 7x7 Flag Football</p>
+          <h2 id="lessonTitle"></h2>
+          <p id="lessonSummary"></p>
+        </div>
+        <div class="scoreboard">
+          <span>Lesson</span>
+          <strong id="lessonCount"></strong>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <div class="field-card">
+          <div class="field-header">
+            <div>
+              <h3>Live Field View</h3>
+              <p id="fieldCaption"></p>
+            </div>
+            <div class="controls">
+              <button id="playBtn">Play</button>
+              <button id="pauseBtn" class="secondary">Pause</button>
+              <button id="resetBtn" class="secondary">Reset</button>
+            </div>
+          </div>
+
+          <div class="field" id="field">
+            <div class="endzone left">END ZONE</div>
+            <div class="endzone right">END ZONE</div>
+            <div class="yard y10"></div><div class="yard y20"></div><div class="yard y30"></div><div class="yard y40"></div>
+            <div id="playersLayer"></div>
+            <svg id="routesLayer" viewBox="0 0 1000 520" preserveAspectRatio="none"></svg>
+            <div class="los" id="los"></div>
+          </div>
+        </div>
+
+        <div class="lesson-card">
+          <h3>Coach Notes</h3>
+          <ul id="coachNotes"></ul>
+
+          <h3>Player Assignments</h3>
+          <div id="assignments"></div>
+
+          <div class="quiz">
+            <h3>Check Understanding</h3>
+            <p id="quizQuestion"></p>
+            <div id="quizOptions"></div>
+            <p id="quizResult"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="film-room">
+        <h3>Film Room Teaching Points</h3>
+        <div id="filmRoom"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
