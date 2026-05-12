@@ -1,0 +1,371 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================================================
+   FLAG FOOTBALL ACADEMY — Stadium Night-Game Design System
+   - Deep midnight navy turf background
+   - Neon electric green primary (chalk-line glow)
+   - Electric yellow accent (penalty-flag / stadium light)
+   - Bold athletic typography
+   =========================================================== */
+
+/* LIGHT MODE (daytime field) */
+:root {
+  --button-outline: rgba(15, 30, 45, 0.18);
+  --badge-outline: rgba(15, 30, 45, 0.08);
+  --opaque-button-border-intensity: -10;
+  --elevate-1: rgba(15, 30, 45, 0.04);
+  --elevate-2: rgba(15, 30, 45, 0.09);
+
+  /* Surfaces — daytime field, off-white turf */
+  --background: 80 22% 96%;
+  --foreground: 215 45% 12%;
+  --border: 215 15% 84%;
+  --card: 0 0% 100%;
+  --card-foreground: 215 45% 12%;
+  --card-border: 215 15% 88%;
+
+  --sidebar: 215 50% 10%;
+  --sidebar-foreground: 80 25% 96%;
+  --sidebar-border: 215 40% 18%;
+  --sidebar-primary: 142 88% 48%;
+  --sidebar-primary-foreground: 215 50% 8%;
+  --sidebar-accent: 215 40% 18%;
+  --sidebar-accent-foreground: 80 25% 96%;
+  --sidebar-ring: 142 88% 48%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 215 45% 12%;
+  --popover-border: 215 15% 86%;
+
+  /* Primary — electric chalk-line green */
+  --primary: 142 88% 36%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 215 30% 92%;
+  --secondary-foreground: 215 45% 12%;
+  --muted: 215 20% 94%;
+  --muted-foreground: 215 18% 38%;
+  --accent: 48 96% 52%;
+  --accent-foreground: 215 50% 10%;
+
+  --destructive: 0 78% 48%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 215 18% 78%;
+  --ring: 142 88% 36%;
+
+  --chart-1: 142 88% 42%;
+  --chart-2: 48 96% 52%;
+  --chart-3: 200 92% 50%;
+  --chart-4: 22 92% 55%;
+  --chart-5: 286 70% 58%;
+
+  /* Athletic typography */
+  --font-sans: 'Space Grotesk', 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Oxanium', 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --radius: 0.625rem;
+
+  --shadow-2xs: 0px 1px 0px 0px hsl(215 50% 10% / 0.04);
+  --shadow-xs: 0px 1px 2px 0px hsl(215 50% 10% / 0.05);
+  --shadow-sm: 0px 1px 2px 0px hsl(215 50% 10% / 0.08), 0px 1px 1px -1px hsl(215 50% 10% / 0.05);
+  --shadow: 0px 2px 4px 0px hsl(215 50% 10% / 0.08), 0px 1px 2px -1px hsl(215 50% 10% / 0.06);
+  --shadow-md: 0px 4px 8px 0px hsl(215 50% 10% / 0.10), 0px 2px 4px -2px hsl(215 50% 10% / 0.06);
+  --shadow-lg: 0px 10px 24px -4px hsl(215 50% 10% / 0.18), 0px 4px 8px -4px hsl(215 50% 10% / 0.10);
+  --shadow-xl: 0px 18px 36px -6px hsl(215 50% 10% / 0.22);
+  --shadow-2xl: 0px 28px 60px -10px hsl(215 50% 10% / 0.28);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  --neon-green: 142 88% 50%;
+  --neon-yellow: 48 100% 58%;
+  --neon-blue: 200 100% 55%;
+  --turf-deep: 215 60% 8%;
+  --turf-mid: 215 50% 13%;
+
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+/* DARK MODE (stadium night-game) — default look */
+.dark {
+  --button-outline: rgba(255, 255, 255, 0.14);
+  --badge-outline: rgba(255, 255, 255, 0.06);
+  --opaque-button-border-intensity: 9;
+  --elevate-1: rgba(180, 255, 200, 0.05);
+  --elevate-2: rgba(180, 255, 200, 0.10);
+
+  --background: 215 60% 6%;
+  --foreground: 80 30% 96%;
+  --border: 215 35% 18%;
+  --card: 215 55% 9%;
+  --card-foreground: 80 30% 96%;
+  --card-border: 215 38% 16%;
+
+  --sidebar: 215 65% 5%;
+  --sidebar-foreground: 80 30% 96%;
+  --sidebar-border: 215 38% 14%;
+  --sidebar-primary: 142 88% 50%;
+  --sidebar-primary-foreground: 215 60% 6%;
+  --sidebar-accent: 215 38% 14%;
+  --sidebar-accent-foreground: 80 30% 96%;
+  --sidebar-ring: 142 88% 50%;
+
+  --popover: 215 55% 9%;
+  --popover-foreground: 80 30% 96%;
+  --popover-border: 215 38% 18%;
+
+  --primary: 142 88% 50%;
+  --primary-foreground: 215 60% 6%;
+  --secondary: 215 38% 14%;
+  --secondary-foreground: 80 30% 96%;
+  --muted: 215 35% 12%;
+  --muted-foreground: 215 18% 70%;
+  --accent: 48 100% 58%;
+  --accent-foreground: 215 60% 6%;
+
+  --destructive: 0 78% 56%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 215 30% 22%;
+  --ring: 142 88% 50%;
+
+  --chart-1: 142 88% 50%;
+  --chart-2: 48 100% 58%;
+  --chart-3: 200 100% 58%;
+  --chart-4: 22 92% 58%;
+  --chart-5: 286 72% 64%;
+
+  --shadow-2xs: 0px 1px 0px 0px hsl(0 0% 0% / 0.3);
+  --shadow-xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.4);
+  --shadow-sm: 0px 1px 2px 0px hsl(0 0% 0% / 0.45), 0px 1px 1px -1px hsl(0 0% 0% / 0.3);
+  --shadow: 0px 2px 4px 0px hsl(0 0% 0% / 0.4), 0px 1px 2px -1px hsl(0 0% 0% / 0.3);
+  --shadow-md: 0px 4px 8px 0px hsl(0 0% 0% / 0.5), 0px 2px 4px -2px hsl(0 0% 0% / 0.3);
+  --shadow-lg: 0px 10px 24px -4px hsl(0 0% 0% / 0.55);
+  --shadow-xl: 0px 18px 36px -6px hsl(0 0% 0% / 0.6);
+  --shadow-2xl: 0px 28px 60px -10px hsl(0 0% 0% / 0.7);
+
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-feature-settings: 'ss01', 'cv01', 'cv11';
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  ::selection {
+    background: hsl(var(--primary) / 0.35);
+    color: hsl(var(--foreground));
+  }
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* ===========================================================
+   STADIUM ATMOSPHERE
+   =========================================================== */
+@layer utilities {
+
+  /* Turf gridiron texture — yard lines, end-zone grass */
+  .bg-turf {
+    background-color: hsl(var(--turf-deep, 215 60% 8%));
+    background-image:
+      /* faint diagonal stripes (mowing pattern) */
+      repeating-linear-gradient(
+        135deg,
+        hsl(142 45% 16% / 0.18) 0px,
+        hsl(142 45% 16% / 0.18) 24px,
+        hsl(142 45% 13% / 0.18) 24px,
+        hsl(142 45% 13% / 0.18) 48px
+      ),
+      /* yard-line tick grid */
+      repeating-linear-gradient(
+        to right,
+        transparent 0,
+        transparent 79px,
+        hsl(0 0% 100% / 0.06) 79px,
+        hsl(0 0% 100% / 0.06) 80px
+      ),
+      /* stadium-light radial glow */
+      radial-gradient(ellipse 80% 60% at 50% 0%, hsl(142 88% 32% / 0.22), transparent 70%),
+      radial-gradient(ellipse 60% 50% at 100% 100%, hsl(48 90% 50% / 0.10), transparent 70%);
+  }
+
+  .bg-gridiron {
+    background-color: hsl(var(--card));
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.6) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 40px 40px, 40px 40px;
+  }
+
+  .bg-chalk-grid {
+    background-image:
+      linear-gradient(to right, hsl(0 0% 100% / 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(0 0% 100% / 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .text-glow-green {
+    text-shadow: 0 0 16px hsl(142 88% 50% / 0.55), 0 0 32px hsl(142 88% 50% / 0.3);
+  }
+  .text-glow-yellow {
+    text-shadow: 0 0 14px hsl(48 100% 58% / 0.55), 0 0 28px hsl(48 100% 58% / 0.28);
+  }
+  .neon-border {
+    box-shadow:
+      0 0 0 1px hsl(var(--primary) / 0.6),
+      0 0 14px hsl(var(--primary) / 0.32),
+      inset 0 0 24px hsl(var(--primary) / 0.06);
+  }
+  .neon-border-yellow {
+    box-shadow:
+      0 0 0 1px hsl(48 100% 58% / 0.7),
+      0 0 14px hsl(48 100% 58% / 0.35);
+  }
+
+  .scan-stripe {
+    background-image: repeating-linear-gradient(
+      90deg,
+      hsl(var(--primary) / 0.0) 0,
+      hsl(var(--primary) / 0.0) 8px,
+      hsl(var(--primary) / 0.18) 8px,
+      hsl(var(--primary) / 0.18) 9px
+    );
+  }
+
+  .stripe-yellow {
+    background-image: repeating-linear-gradient(
+      45deg,
+      hsl(48 100% 58%) 0,
+      hsl(48 100% 58%) 12px,
+      hsl(215 60% 8%) 12px,
+      hsl(215 60% 8%) 24px
+    );
+  }
+
+  /* Marquee dot animation for playbook diagram strokes */
+  @keyframes dashmove {
+    to { stroke-dashoffset: -40; }
+  }
+  .anim-dash { animation: dashmove 1.2s linear infinite; }
+
+  @keyframes pulse-glow {
+    0%, 100% { filter: drop-shadow(0 0 6px hsl(142 88% 50% / 0.6)); }
+    50% { filter: drop-shadow(0 0 14px hsl(142 88% 50% / 0.9)); }
+  }
+  .anim-glow { animation: pulse-glow 2.4s ease-in-out infinite; }
+
+  @keyframes route-draw {
+    from { stroke-dashoffset: var(--total-length, 600); }
+    to { stroke-dashoffset: 0; }
+  }
+
+  @keyframes float-up {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .anim-fade-up { animation: float-up 480ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .anim-dash, .anim-glow, .anim-fade-up { animation: none !important; }
+  }
+
+  /* tabular numerics for scoreboard look */
+  .tabular { font-variant-numeric: tabular-nums; }
+}
+
+/* Elevation system (unchanged) */
+@layer utilities {
+  input[type='search']::-webkit-search-cancel-button { @apply hidden; }
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+  .no-default-hover-elevate {}
+  .no-default-active-elevate {}
+  .toggle-elevate::before, .toggle-elevate-2::before {
+    content: ''; pointer-events: none; position: absolute; inset: 0px;
+    border-radius: inherit; z-index: -1;
+  }
+  .toggle-elevate.toggle-elevated::before { background-color: var(--elevate-2); }
+  .border.toggle-elevate::before { inset: -1px; }
+  .hover-elevate:not(.no-default-hover-elevate),
+  .active-elevate:not(.no-default-active-elevate),
+  .hover-elevate-2:not(.no-default-hover-elevate),
+  .active-elevate-2:not(.no-default-active-elevate) {
+    position: relative; z-index: 0;
+  }
+  .hover-elevate:not(.no-default-hover-elevate)::after,
+  .active-elevate:not(.no-default-active-elevate)::after,
+  .hover-elevate-2:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:not(.no-default-active-elevate)::after {
+    content: ''; pointer-events: none; position: absolute; inset: 0px;
+    border-radius: inherit; z-index: 999;
+  }
+  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-1);
+  }
+  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-2);
+  }
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate-2:not(.no-active-interaction-elevate)::after {
+    inset: -1px;
+  }
+}
