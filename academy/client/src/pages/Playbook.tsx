@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Play as PlayIcon, Pause, SkipBack, SkipForward, RotateCcw, Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PLAYS } from "@/lib/playbook";
+import { playStepScript } from "@/lib/narrationScripts";
 import { FieldDiagram } from "@/components/FieldDiagram";
 import { useCoachAudio } from "@/lib/useCoachAudio";
 import { useReducedMotion } from "@/components/ReducedMotionCtx";
@@ -47,7 +48,7 @@ export function Playbook() {
     if (!audio.hasAudio && !audio.speechSupported) return;
     const s = active.steps[step];
     if (!s) return;
-    const txt = `${s.title}. ${s.description}`;
+    const txt = playStepScript(s);
     audio.play({ id: `play:${active.id}:step:${step}`, text: txt });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step, activeId, narrateOn]);

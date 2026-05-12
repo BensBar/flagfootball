@@ -2,6 +2,7 @@ import { Link, useParams } from "wouter";
 import { useEffect, useMemo } from "react";
 import { ArrowLeft, ArrowRight, Clock, CheckCircle2 } from "lucide-react";
 import { LESSONS } from "@/lib/content";
+import { lessonFullScript, lessonSectionScript } from "@/lib/narrationScripts";
 import { Button } from "@/components/ui/button";
 import { useCoachAudio } from "@/lib/useCoachAudio";
 import { NarrationBar } from "@/components/NarrationBar";
@@ -82,9 +83,8 @@ export function LessonPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lesson?.id]);
 
-  // Match the audio script join logic: section bodies separated by two newlines.
   const fullScript = useMemo(
-    () => (lesson ? lesson.sections.map((s) => s.body).join("\n\n") : ""),
+    () => (lesson ? lessonFullScript(lesson) : ""),
     [lesson]
   );
 
@@ -146,7 +146,7 @@ export function LessonPage() {
               <div className="flex-1 min-w-0">
                 <h2 className="font-display font-bold text-lg sm:text-xl tracking-tight">{s.heading}</h2>
                 <CaptionedTranscript
-                  text={s.body}
+                  text={lessonSectionScript(s)}
                   audio={audio}
                   className="mt-2 leading-relaxed text-foreground/90"
                 />
@@ -164,7 +164,7 @@ export function LessonPage() {
                   onClick={() =>
                     audio.play({
                       id: `lesson:${lesson.id}:section:${s.id}`,
-                      text: s.body,
+                      text: lessonSectionScript(s),
                     })
                   }
                   className="mt-3 text-xs font-display font-semibold uppercase tracking-wider text-primary hover:underline disabled:opacity-50"

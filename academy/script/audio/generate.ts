@@ -18,8 +18,14 @@ import { config as loadDotenv } from "dotenv";
 import { VOICE } from "./voice-config.ts";
 import { hashFor, type Manifest, type ManifestEntry } from "./manifest.ts";
 import { ttsWithTimestamps } from "./elevenlabs.ts";
-import { LESSONS, type Lesson, type LessonSection } from "../../client/src/lib/content.ts";
-import { PLAYS, ROUTES, type Play, type PlayStep, type RoutePattern } from "../../client/src/lib/playbook.ts";
+import { LESSONS, type LessonSection } from "../../client/src/lib/content.ts";
+import { PLAYS, ROUTES, type Play } from "../../client/src/lib/playbook.ts";
+import {
+  lessonFullScript,
+  lessonSectionScript,
+  playStepScript,
+  routeTipScript,
+} from "../../client/src/lib/narrationScripts.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ACADEMY_ROOT = resolve(__dirname, "..", "..");
@@ -51,32 +57,10 @@ function loadEnv() {
 
 type Unit = { id: string; text: string };
 
-function lessonFullText(lesson: Lesson): string {
-  // Sections separated by a blank line — ElevenLabs treats that as a pause.
-  const parts: string[] = [`${lesson.title}. ${lesson.subtitle}.`];
-  for (const s of lesson.sections) {
-    parts.push(sectionText(s));
-  }
-  return parts.join("\n\n");
-}
-
-function sectionText(s: LessonSection): string {
-  const bullets = s.bullets && s.bullets.length ? "\n" + s.bullets.map((b) => `- ${b}`).join("\n") : "";
-  return `${s.heading}. ${s.body}${bullets}`;
-}
-
-function playStepText(step: PlayStep): string {
-  return `${step.title}. ${step.description}`;
-}
-
-function routeTipText(r: RoutePattern): string {
-  return `${r.name}. ${r.shortDescription}`;
-}
-
 function collectUnits(): Unit[] {
   const units: Unit[] = [];
   for (const lesson of LESSONS) {
-    units.push({ id: `lesson:${lesson.id}:full`, text: lessonFullText(lesson) });
+    units.push({ id: `lesson:${lesson.id}:full`, text: lessonFullScript(lesson) });
     for (const section of lesson.sections) {
       const sid = (section as LessonSection & { id?: string }).id;
       if (!sid) {
@@ -84,18 +68,18 @@ function collectUnits(): Unit[] {
           `Lesson "${lesson.id}" has a section "${section.heading}" without a stable id. Add one in content.ts.`,
         );
       }
-      units.push({ id: `lesson:${lesson.id}:section:${sid}`, text: sectionText(section) });
+      units.push({ id: `lesson:${lesson.id}:section:${sid}`, text: lessonSectionScript(section) });
     }
   }
   for (const play of PLAYS as Play[]) {
     play.steps.forEach((step, idx) => {
-      const text = playStepText(step);
+      const text = playStepScript(step);
       if (!text.trim()) return;
       units.push({ id: `play:${play.id}:step:${idx}`, text });
     });
   }
   for (const route of ROUTES) {
-    units.push({ id: `route:${route.id}:tip`, text: routeTipText(route) });
+    units.push({ id: `route:${route.id}:tip`, text: routeTipScript(route) });
   }
   return units;
 }
