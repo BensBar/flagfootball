@@ -44,17 +44,9 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _site
-          rsync -a \
-            --exclude='.git' \
-            --exclude='.github' \
-            --exclude='node_modules' \
-            --exclude='academy' \
-            --exclude='_site' \
-            ./ _site/
-          mkdir -p _site/academy
-          cp -r academy/dist/public/. _site/academy/
+          cp -r academy/dist/public/. _site/
+          cp CNAME _site/CNAME
           ls -la _site
-          ls -la _site/academy
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
