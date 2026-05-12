@@ -1,429 +1,433 @@
 {
   "version": 1,
   "voice": {
-    "id": "nPczCjzI2devNBz1zQrb",
+    "id": "IKne3meq5aSn9XLyUdCD",
     "name": "Coach Cam"
   },
   "entries": {
     "lesson:basics:full": {
       "id": "lesson:basics:full",
-      "hash": "75a4ad5b1c0dcc016bc150e648d1babe77e1e36a",
-      "mp3": "audio/75a4ad5b1c0dcc016bc150e648d1babe77e1e36a.mp3",
-      "timing": "audio/75a4ad5b1c0dcc016bc150e648d1babe77e1e36a.json",
-      "chars": 1171
+      "hash": "aaaeae3f502f03575810cc2c5f5b30a9589d2da5",
+      "mp3": "audio/aaaeae3f502f03575810cc2c5f5b30a9589d2da5.mp3",
+      "timing": "audio/aaaeae3f502f03575810cc2c5f5b30a9589d2da5.json",
+      "chars": 1171,
+      "durationMs": 83219
     },
     "lesson:basics:section:how-a-play-happens": {
       "id": "lesson:basics:section:how-a-play-happens",
-      "hash": "a2f7d305b300b4747ba44cf40c37c2b0db36e2e2",
-      "mp3": "audio/a2f7d305b300b4747ba44cf40c37c2b0db36e2e2.mp3",
-      "timing": "audio/a2f7d305b300b4747ba44cf40c37c2b0db36e2e2.json",
-      "chars": 606
+      "hash": "e2bc2ec21fb54542be1e7ac58a65ced1a162bb13",
+      "mp3": "audio/e2bc2ec21fb54542be1e7ac58a65ced1a162bb13.mp3",
+      "timing": "audio/e2bc2ec21fb54542be1e7ac58a65ced1a162bb13.json",
+      "chars": 606,
+      "durationMs": 41888
     },
     "lesson:basics:section:what-is-flag-football": {
       "id": "lesson:basics:section:what-is-flag-football",
-      "hash": "0b7d4513e4324e614ef2368e800a719b1f9f6580",
-      "mp3": "audio/0b7d4513e4324e614ef2368e800a719b1f9f6580.mp3",
-      "timing": "audio/0b7d4513e4324e614ef2368e800a719b1f9f6580.json",
-      "chars": 314
+      "hash": "6fdd25dd331ffb9d986e62fcd5f65dd647218b9e",
+      "mp3": "audio/6fdd25dd331ffb9d986e62fcd5f65dd647218b9e.mp3",
+      "timing": "audio/6fdd25dd331ffb9d986e62fcd5f65dd647218b9e.json",
+      "chars": 314,
+      "durationMs": 19736
     },
     "lesson:basics:section:what-you-need": {
       "id": "lesson:basics:section:what-you-need",
-      "hash": "eb69665325a92d8ae6375527044bcc1ea1153c70",
-      "mp3": "audio/eb69665325a92d8ae6375527044bcc1ea1153c70.mp3",
-      "timing": "audio/eb69665325a92d8ae6375527044bcc1ea1153c70.json",
-      "chars": 185
+      "hash": "9e70adc61b60ac58d15d6c56a1ead95cba91cebb",
+      "mp3": "audio/9e70adc61b60ac58d15d6c56a1ead95cba91cebb.mp3",
+      "timing": "audio/9e70adc61b60ac58d15d6c56a1ead95cba91cebb.json",
+      "chars": 185,
+      "durationMs": 13003
     },
     "lesson:defense:full": {
       "id": "lesson:defense:full",
-      "hash": "07e8de0a760371290ce801e8d8f5180e8e4562da",
-      "mp3": "audio/07e8de0a760371290ce801e8d8f5180e8e4562da.mp3",
-      "timing": "audio/07e8de0a760371290ce801e8d8f5180e8e4562da.json",
+      "hash": "56e03fd9f46d083decf425467a5049fd871227d3",
+      "mp3": "audio/56e03fd9f46d083decf425467a5049fd871227d3.mp3",
+      "timing": "audio/56e03fd9f46d083decf425467a5049fd871227d3.json",
       "chars": 907,
-      "durationMs": 57865
+      "durationMs": 62183
     },
     "lesson:defense:section:goal-of-the-defense": {
       "id": "lesson:defense:section:goal-of-the-defense",
-      "hash": "8dbe4b275544b5501843012197ddf1c845afa359",
-      "mp3": "audio/8dbe4b275544b5501843012197ddf1c845afa359.mp3",
-      "timing": "audio/8dbe4b275544b5501843012197ddf1c845afa359.json",
+      "hash": "4d5a8e13e255c4321674b29995853980d913a2ba",
+      "mp3": "audio/4d5a8e13e255c4321674b29995853980d913a2ba.mp3",
+      "timing": "audio/4d5a8e13e255c4321674b29995853980d913a2ba.json",
       "chars": 211,
-      "durationMs": 12678
+      "durationMs": 13746
     },
     "lesson:defense:section:man-and-zone-coverage": {
       "id": "lesson:defense:section:man-and-zone-coverage",
-      "hash": "5ae61132f11bfad1d147029ac468e2d9bf2323e5",
-      "mp3": "audio/5ae61132f11bfad1d147029ac468e2d9bf2323e5.mp3",
-      "timing": "audio/5ae61132f11bfad1d147029ac468e2d9bf2323e5.json",
+      "hash": "0379615520eb5e65b9b07c0bcf7890f2a1a6f687",
+      "mp3": "audio/0379615520eb5e65b9b07c0bcf7890f2a1a6f687.mp3",
+      "timing": "audio/0379615520eb5e65b9b07c0bcf7890f2a1a6f687.json",
       "chars": 258,
-      "durationMs": 17322
+      "durationMs": 19133
     },
     "lesson:defense:section:taking-the-right-angle": {
       "id": "lesson:defense:section:taking-the-right-angle",
-      "hash": "c380ee40b0cf6066973f3edbd7c0246a34c3dffa",
-      "mp3": "audio/c380ee40b0cf6066973f3edbd7c0246a34c3dffa.mp3",
-      "timing": "audio/c380ee40b0cf6066973f3edbd7c0246a34c3dffa.json",
+      "hash": "ec7cc4c519b9efc317d0f0f5b81fbc56577b2b78",
+      "mp3": "audio/ec7cc4c519b9efc317d0f0f5b81fbc56577b2b78.mp3",
+      "timing": "audio/ec7cc4c519b9efc317d0f0f5b81fbc56577b2b78.json",
       "chars": 389,
-      "durationMs": 24288
+      "durationMs": 24753
     },
     "lesson:drills:full": {
       "id": "lesson:drills:full",
-      "hash": "46a245d280c3f74d887b0a373a5ecca20a0037e9",
-      "mp3": "audio/46a245d280c3f74d887b0a373a5ecca20a0037e9.mp3",
-      "timing": "audio/46a245d280c3f74d887b0a373a5ecca20a0037e9.json",
+      "hash": "4c1b3776d0e35f8ba81461722a5aa50ccfc611ad",
+      "mp3": "audio/4c1b3776d0e35f8ba81461722a5aa50ccfc611ad.mp3",
+      "timing": "audio/4c1b3776d0e35f8ba81461722a5aa50ccfc611ad.json",
       "chars": 809,
-      "durationMs": 58514
+      "durationMs": 59536
     },
     "lesson:drills:section:catching": {
       "id": "lesson:drills:section:catching",
-      "hash": "3fb12dc562cc1e334f723f8383e043f0dba907bb",
-      "mp3": "audio/3fb12dc562cc1e334f723f8383e043f0dba907bb.mp3",
-      "timing": "audio/3fb12dc562cc1e334f723f8383e043f0dba907bb.json",
+      "hash": "eb5edd644f17cc1f9597c798863e56a641284116",
+      "mp3": "audio/eb5edd644f17cc1f9597c798863e56a641284116.mp3",
+      "timing": "audio/eb5edd644f17cc1f9597c798863e56a641284116.json",
       "chars": 206,
-      "durationMs": 13421
+      "durationMs": 13978
     },
     "lesson:drills:section:flag-pulling-reps": {
       "id": "lesson:drills:section:flag-pulling-reps",
-      "hash": "e947192a8756bdcf7f742da5debfefcc98da602d",
-      "mp3": "audio/e947192a8756bdcf7f742da5debfefcc98da602d.mp3",
-      "timing": "audio/e947192a8756bdcf7f742da5debfefcc98da602d.json",
+      "hash": "23c07a14fa43e3b3c8621f2cc33d06e6451c40fe",
+      "mp3": "audio/23c07a14fa43e3b3c8621f2cc33d06e6451c40fe.mp3",
+      "timing": "audio/23c07a14fa43e3b3c8621f2cc33d06e6451c40fe.json",
       "chars": 208,
-      "durationMs": 14443
+      "durationMs": 14164
     },
     "lesson:drills:section:footwork": {
       "id": "lesson:drills:section:footwork",
-      "hash": "f4f3fade541ae1c891c6b8776b05e21883487d5f",
-      "mp3": "audio/f4f3fade541ae1c891c6b8776b05e21883487d5f.mp3",
-      "timing": "audio/f4f3fade541ae1c891c6b8776b05e21883487d5f.json",
+      "hash": "4aef7ef91a13873ee7b63fa07b9f79d00bda7fb2",
+      "mp3": "audio/4aef7ef91a13873ee7b63fa07b9f79d00bda7fb2.mp3",
+      "timing": "audio/4aef7ef91a13873ee7b63fa07b9f79d00bda7fb2.json",
       "chars": 342,
-      "durationMs": 25820
+      "durationMs": 27213
     },
     "lesson:field:full": {
       "id": "lesson:field:full",
-      "hash": "3823a931843c10626b82ffcfe2c6ebdf31ad4351",
-      "mp3": "audio/3823a931843c10626b82ffcfe2c6ebdf31ad4351.mp3",
-      "timing": "audio/3823a931843c10626b82ffcfe2c6ebdf31ad4351.json",
+      "hash": "f1226ada231db72992497bafdc0221a64bace7b9",
+      "mp3": "audio/f1226ada231db72992497bafdc0221a64bace7b9.mp3",
+      "timing": "audio/f1226ada231db72992497bafdc0221a64bace7b9.json",
       "chars": 1137,
-      "durationMs": 83407
+      "durationMs": 84289
     },
     "lesson:field:section:defensive-positions": {
       "id": "lesson:field:section:defensive-positions",
-      "hash": "1c44582b2f37677db24ca2fab246dfd9cb3f3eb4",
-      "mp3": "audio/1c44582b2f37677db24ca2fab246dfd9cb3f3eb4.mp3",
-      "timing": "audio/1c44582b2f37677db24ca2fab246dfd9cb3f3eb4.json",
+      "hash": "8907ae4805836b34697a4b2f3a4cf2ff5885aeea",
+      "mp3": "audio/8907ae4805836b34697a4b2f3a4cf2ff5885aeea.mp3",
+      "timing": "audio/8907ae4805836b34697a4b2f3a4cf2ff5885aeea.json",
       "chars": 452,
-      "durationMs": 31719
+      "durationMs": 30418
     },
     "lesson:field:section:offensive-positions": {
       "id": "lesson:field:section:offensive-positions",
-      "hash": "a0790751a77f2198ff169acfaf81f7a3ebaf7894",
-      "mp3": "audio/a0790751a77f2198ff169acfaf81f7a3ebaf7894.mp3",
-      "timing": "audio/a0790751a77f2198ff169acfaf81f7a3ebaf7894.json",
+      "hash": "e79de1833fb832f2bb4c0251af218a76ac60060e",
+      "mp3": "audio/e79de1833fb832f2bb4c0251af218a76ac60060e.mp3",
+      "timing": "audio/e79de1833fb832f2bb4c0251af218a76ac60060e.json",
       "chars": 397,
-      "durationMs": 30000
+      "durationMs": 29768
     },
     "lesson:field:section:the-field": {
       "id": "lesson:field:section:the-field",
-      "hash": "3e0c15e65fcdeb48b928eeace08bf3e21448d3bf",
-      "mp3": "audio/3e0c15e65fcdeb48b928eeace08bf3e21448d3bf.mp3",
-      "timing": "audio/3e0c15e65fcdeb48b928eeace08bf3e21448d3bf.json",
+      "hash": "6fe5d56f9a95595ae37854a39f599bfe1b5646b6",
+      "mp3": "audio/6fe5d56f9a95595ae37854a39f599bfe1b5646b6.mp3",
+      "timing": "audio/6fe5d56f9a95595ae37854a39f599bfe1b5646b6.json",
       "chars": 235,
-      "durationMs": 14164
+      "durationMs": 15604
     },
     "lesson:flag-pulling:full": {
       "id": "lesson:flag-pulling:full",
-      "hash": "4ae7c6dc1f6bcdc128380ded92c8f65ad73c9c61",
-      "mp3": "audio/4ae7c6dc1f6bcdc128380ded92c8f65ad73c9c61.mp3",
-      "timing": "audio/4ae7c6dc1f6bcdc128380ded92c8f65ad73c9c61.json",
+      "hash": "84698ec06b268a4056fa5270669241a4f7b53fb9",
+      "mp3": "audio/84698ec06b268a4056fa5270669241a4f7b53fb9.mp3",
+      "timing": "audio/84698ec06b268a4056fa5270669241a4f7b53fb9.json",
       "chars": 758,
-      "durationMs": 53498
+      "durationMs": 56331
     },
     "lesson:flag-pulling:section:stance-and-approach": {
       "id": "lesson:flag-pulling:section:stance-and-approach",
-      "hash": "88786140d1793255083280e5030b92ae3e8a8ea6",
-      "mp3": "audio/88786140d1793255083280e5030b92ae3e8a8ea6.mp3",
-      "timing": "audio/88786140d1793255083280e5030b92ae3e8a8ea6.json",
+      "hash": "70087cf4850815e3d7538286080ed22ffe15a623",
+      "mp3": "audio/70087cf4850815e3d7538286080ed22ffe15a623.mp3",
+      "timing": "audio/70087cf4850815e3d7538286080ed22ffe15a623.json",
       "chars": 205,
-      "durationMs": 12910
+      "durationMs": 14443
     },
     "lesson:flag-pulling:section:the-pull": {
       "id": "lesson:flag-pulling:section:the-pull",
-      "hash": "32147440521df7b53b9bc1bae0d073de51834b5e",
-      "mp3": "audio/32147440521df7b53b9bc1bae0d073de51834b5e.mp3",
-      "timing": "audio/32147440521df7b53b9bc1bae0d073de51834b5e.json",
+      "hash": "2c2729c20ee831ff7c09ef9ecbb7accd18a93b78",
+      "mp3": "audio/2c2729c20ee831ff7c09ef9ecbb7accd18a93b78.mp3",
+      "timing": "audio/2c2729c20ee831ff7c09ef9ecbb7accd18a93b78.json",
       "chars": 332,
-      "durationMs": 24706
+      "durationMs": 26053
     },
     "lesson:flag-pulling:section:what-not-to-do": {
       "id": "lesson:flag-pulling:section:what-not-to-do",
-      "hash": "6b78d160b1bd67ec4ddfb987d1d92add2856fc87",
-      "mp3": "audio/6b78d160b1bd67ec4ddfb987d1d92add2856fc87.mp3",
-      "timing": "audio/6b78d160b1bd67ec4ddfb987d1d92add2856fc87.json",
+      "hash": "f438f997f2ea3664b7160a9eb47b161b528895ee",
+      "mp3": "audio/f438f997f2ea3664b7160a9eb47b161b528895ee.mp3",
+      "timing": "audio/f438f997f2ea3664b7160a9eb47b161b528895ee.json",
       "chars": 166,
-      "durationMs": 11192
+      "durationMs": 12214
     },
     "lesson:gameday:full": {
       "id": "lesson:gameday:full",
-      "hash": "3d081e4e4cae9acd31f20953950c695ed919661d",
-      "mp3": "audio/3d081e4e4cae9acd31f20953950c695ed919661d.mp3",
-      "timing": "audio/3d081e4e4cae9acd31f20953950c695ed919661d.json",
+      "hash": "33aa91e878c6727fffe4ce48a189acff0fc5690f",
+      "mp3": "audio/33aa91e878c6727fffe4ce48a189acff0fc5690f.mp3",
+      "timing": "audio/33aa91e878c6727fffe4ce48a189acff0fc5690f.json",
       "chars": 645,
-      "durationMs": 44118
+      "durationMs": 45233
     },
     "lesson:gameday:section:mindset": {
       "id": "lesson:gameday:section:mindset",
-      "hash": "6df9b8b9057dbba499cdd32c6598f02a8eb4f05b",
-      "mp3": "audio/6df9b8b9057dbba499cdd32c6598f02a8eb4f05b.mp3",
-      "timing": "audio/6df9b8b9057dbba499cdd32c6598f02a8eb4f05b.json",
+      "hash": "3799866e624492783daf9faabd32cc42565dc670",
+      "mp3": "audio/3799866e624492783daf9faabd32cc42565dc670.mp3",
+      "timing": "audio/3799866e624492783daf9faabd32cc42565dc670.json",
       "chars": 213,
-      "durationMs": 14675
+      "durationMs": 14118
     },
     "lesson:gameday:section:morning-of": {
       "id": "lesson:gameday:section:morning-of",
-      "hash": "7d42f3c64dec6eb8f8ea3d251300231fec499b4e",
-      "mp3": "audio/7d42f3c64dec6eb8f8ea3d251300231fec499b4e.mp3",
-      "timing": "audio/7d42f3c64dec6eb8f8ea3d251300231fec499b4e.json",
+      "hash": "88d1b6df6e02ef4fd45972ca02959cd88af0f81f",
+      "mp3": "audio/88d1b6df6e02ef4fd45972ca02959cd88af0f81f.mp3",
+      "timing": "audio/88d1b6df6e02ef4fd45972ca02959cd88af0f81f.json",
       "chars": 191,
-      "durationMs": 12214
+      "durationMs": 12585
     },
     "lesson:gameday:section:night-before": {
       "id": "lesson:gameday:section:night-before",
-      "hash": "63eb8ea2760ef7e8c8c59135d8cb63f91b56159d",
-      "mp3": "audio/63eb8ea2760ef7e8c8c59135d8cb63f91b56159d.mp3",
-      "timing": "audio/63eb8ea2760ef7e8c8c59135d8cb63f91b56159d.json",
+      "hash": "434c46541135690e32041dc8a8d44c188a44ecd2",
+      "mp3": "audio/434c46541135690e32041dc8a8d44c188a44ecd2.mp3",
+      "timing": "audio/434c46541135690e32041dc8a8d44c188a44ecd2.json",
       "chars": 193,
-      "durationMs": 13003
+      "durationMs": 14768
     },
     "lesson:offense:full": {
       "id": "lesson:offense:full",
-      "hash": "f515842614c1fc7c4c464fcb4333fcf0b9c96009",
-      "mp3": "audio/f515842614c1fc7c4c464fcb4333fcf0b9c96009.mp3",
-      "timing": "audio/f515842614c1fc7c4c464fcb4333fcf0b9c96009.json",
+      "hash": "7575fbd4be07e683e1432288cbf9a4d1d43ed2e3",
+      "mp3": "audio/7575fbd4be07e683e1432288cbf9a4d1d43ed2e3.mp3",
+      "timing": "audio/7575fbd4be07e683e1432288cbf9a4d1d43ed2e3.json",
       "chars": 894,
-      "durationMs": 57818
+      "durationMs": 60418
     },
     "lesson:offense:section:goal-of-the-offense": {
       "id": "lesson:offense:section:goal-of-the-offense",
-      "hash": "b4695d110b79fe3aabe500aab5b6cbedd5df8194",
-      "mp3": "audio/b4695d110b79fe3aabe500aab5b6cbedd5df8194.mp3",
-      "timing": "audio/b4695d110b79fe3aabe500aab5b6cbedd5df8194.json",
+      "hash": "da66826fc69d8d7a2cd40f5fc2d1bc65f3082aac",
+      "mp3": "audio/da66826fc69d8d7a2cd40f5fc2d1bc65f3082aac.mp3",
+      "timing": "audio/da66826fc69d8d7a2cd40f5fc2d1bc65f3082aac.json",
       "chars": 235,
-      "durationMs": 15511
+      "durationMs": 16068
     },
     "lesson:offense:section:protecting-the-ball": {
       "id": "lesson:offense:section:protecting-the-ball",
-      "hash": "724d99aeb3312fe269b98175d6bbfa708f0fc0b3",
-      "mp3": "audio/724d99aeb3312fe269b98175d6bbfa708f0fc0b3.mp3",
-      "timing": "audio/724d99aeb3312fe269b98175d6bbfa708f0fc0b3.json",
+      "hash": "7bea76f20a85d31fb32283a163fbdb5a8dcae158",
+      "mp3": "audio/7bea76f20a85d31fb32283a163fbdb5a8dcae158.mp3",
+      "timing": "audio/7bea76f20a85d31fb32283a163fbdb5a8dcae158.json",
       "chars": 240,
-      "durationMs": 15000
+      "durationMs": 16068
     },
     "lesson:offense:section:reading-the-defense": {
       "id": "lesson:offense:section:reading-the-defense",
-      "hash": "da641b9581ae889f56ec0bdf5c78aecb39478c55",
-      "mp3": "audio/da641b9581ae889f56ec0bdf5c78aecb39478c55.mp3",
-      "timing": "audio/da641b9581ae889f56ec0bdf5c78aecb39478c55.json",
+      "hash": "75ef8d6f2ef2d71f3e49366509a5dddcdd5b7df3",
+      "mp3": "audio/75ef8d6f2ef2d71f3e49366509a5dddcdd5b7df3.mp3",
+      "timing": "audio/75ef8d6f2ef2d71f3e49366509a5dddcdd5b7df3.json",
       "chars": 378,
-      "durationMs": 25031
+      "durationMs": 24195
     },
     "lesson:routes:full": {
       "id": "lesson:routes:full",
-      "hash": "0df2c2f61f5b1d3a3f5122357156da21f286ca28",
-      "mp3": "audio/0df2c2f61f5b1d3a3f5122357156da21f286ca28.mp3",
-      "timing": "audio/0df2c2f61f5b1d3a3f5122357156da21f286ca28.json",
+      "hash": "599832afa144539e36cf4adcbacbbdbd997d3def",
+      "mp3": "audio/599832afa144539e36cf4adcbacbbdbd997d3def.mp3",
+      "timing": "audio/599832afa144539e36cf4adcbacbbdbd997d3def.json",
       "chars": 961,
-      "durationMs": 64412
+      "durationMs": 68360
     },
     "lesson:routes:section:five-must-know-routes": {
       "id": "lesson:routes:section:five-must-know-routes",
-      "hash": "405ba0746ec9c63640839c1d1790f98965851eb8",
-      "mp3": "audio/405ba0746ec9c63640839c1d1790f98965851eb8.mp3",
-      "timing": "audio/405ba0746ec9c63640839c1d1790f98965851eb8.json",
+      "hash": "712b105c6aec8447f270b201198670b456f256d2",
+      "mp3": "audio/712b105c6aec8447f270b201198670b456f256d2.mp3",
+      "timing": "audio/712b105c6aec8447f270b201198670b456f256d2.json",
       "chars": 467,
-      "durationMs": 35527
+      "durationMs": 36780
     },
     "lesson:routes:section:selling-the-route": {
       "id": "lesson:routes:section:selling-the-route",
-      "hash": "fbf88b179ffecfb1410b7f9d5d5f7dfa929944c4",
-      "mp3": "audio/fbf88b179ffecfb1410b7f9d5d5f7dfa929944c4.mp3",
-      "timing": "audio/fbf88b179ffecfb1410b7f9d5d5f7dfa929944c4.json",
+      "hash": "4c2024326aeaf48bf1bbc3ba7aa73f45776fae28",
+      "mp3": "audio/4c2024326aeaf48bf1bbc3ba7aa73f45776fae28.mp3",
+      "timing": "audio/4c2024326aeaf48bf1bbc3ba7aa73f45776fae28.json",
       "chars": 209,
-      "durationMs": 12399
+      "durationMs": 13328
     },
     "lesson:routes:section:why-routes-matter": {
       "id": "lesson:routes:section:why-routes-matter",
-      "hash": "72986f65b4e9e814cba44828d275e42e22bd5bee",
-      "mp3": "audio/72986f65b4e9e814cba44828d275e42e22bd5bee.mp3",
-      "timing": "audio/72986f65b4e9e814cba44828d275e42e22bd5bee.json",
+      "hash": "d249199696f2faeb56fe3b444e0c2cbc8bc61d8f",
+      "mp3": "audio/d249199696f2faeb56fe3b444e0c2cbc8bc61d8f.mp3",
+      "timing": "audio/d249199696f2faeb56fe3b444e0c2cbc8bc61d8f.json",
       "chars": 234,
-      "durationMs": 13235
+      "durationMs": 16208
     },
     "lesson:rules:full": {
       "id": "lesson:rules:full",
-      "hash": "f739762775dc89c28690bfcc15bdb0c640c49568",
-      "mp3": "audio/f739762775dc89c28690bfcc15bdb0c640c49568.mp3",
-      "timing": "audio/f739762775dc89c28690bfcc15bdb0c640c49568.json",
+      "hash": "e5669eff141796824f1c51e8d181b8b6de0fa549",
+      "mp3": "audio/e5669eff141796824f1c51e8d181b8b6de0fa549.mp3",
+      "timing": "audio/e5669eff141796824f1c51e8d181b8b6de0fa549.json",
       "chars": 893,
-      "durationMs": 64597
+      "durationMs": 65898
     },
     "lesson:rules:section:common-penalties": {
       "id": "lesson:rules:section:common-penalties",
-      "hash": "c590201a1410135e47b9280c20318104fb49dadf",
-      "mp3": "audio/c590201a1410135e47b9280c20318104fb49dadf.mp3",
-      "timing": "audio/c590201a1410135e47b9280c20318104fb49dadf.json",
+      "hash": "b62ab266ff11e0a7c8159563ec5a2a561a32f70c",
+      "mp3": "audio/b62ab266ff11e0a7c8159563ec5a2a561a32f70c.mp3",
+      "timing": "audio/b62ab266ff11e0a7c8159563ec5a2a561a32f70c.json",
       "chars": 403,
-      "durationMs": 30929
+      "durationMs": 31626
     },
     "lesson:rules:section:safety": {
       "id": "lesson:rules:section:safety",
-      "hash": "4bf1a744485c2eb28e4210b5795962e6c62ea536",
-      "mp3": "audio/4bf1a744485c2eb28e4210b5795962e6c62ea536.mp3",
-      "timing": "audio/4bf1a744485c2eb28e4210b5795962e6c62ea536.json",
+      "hash": "ca0a74c7b86c27ed67d701c2b6f751eccd960520",
+      "mp3": "audio/ca0a74c7b86c27ed67d701c2b6f751eccd960520.mp3",
+      "timing": "audio/ca0a74c7b86c27ed67d701c2b6f751eccd960520.json",
       "chars": 211,
-      "durationMs": 14536
+      "durationMs": 14443
     },
     "lesson:rules:section:sportsmanship": {
       "id": "lesson:rules:section:sportsmanship",
-      "hash": "369c781aea41d2e13f1f67884a187770006a5711",
-      "mp3": "audio/369c781aea41d2e13f1f67884a187770006a5711.mp3",
-      "timing": "audio/369c781aea41d2e13f1f67884a187770006a5711.json",
+      "hash": "c971de99c49f5e400bf48243931f61728404fa06",
+      "mp3": "audio/c971de99c49f5e400bf48243931f61728404fa06.mp3",
+      "timing": "audio/c971de99c49f5e400bf48243931f61728404fa06.json",
       "chars": 221,
-      "durationMs": 14489
+      "durationMs": 15418
     },
     "play:qb-sweep-handoff:step:0": {
       "id": "play:qb-sweep-handoff:step:0",
-      "hash": "2260910f2382d98854b3e5e7ead710e371861ab2",
-      "mp3": "audio/2260910f2382d98854b3e5e7ead710e371861ab2.mp3",
-      "timing": "audio/2260910f2382d98854b3e5e7ead710e371861ab2.json",
+      "hash": "277a11d08ebf36717e08969a550c268bb5026e5e",
+      "mp3": "audio/277a11d08ebf36717e08969a550c268bb5026e5e.mp3",
+      "timing": "audio/277a11d08ebf36717e08969a550c268bb5026e5e.json",
       "chars": 96,
-      "durationMs": 6687
+      "durationMs": 9009
     },
     "play:qb-sweep-handoff:step:1": {
       "id": "play:qb-sweep-handoff:step:1",
-      "hash": "ef4c2a806c25308d1f537d23dc29a789d050ebd2",
-      "mp3": "audio/ef4c2a806c25308d1f537d23dc29a789d050ebd2.mp3",
-      "timing": "audio/ef4c2a806c25308d1f537d23dc29a789d050ebd2.json",
+      "hash": "623884915514f6bedee21881df8941e4995d038c",
+      "mp3": "audio/623884915514f6bedee21881df8941e4995d038c.mp3",
+      "timing": "audio/623884915514f6bedee21881df8941e4995d038c.json",
       "chars": 102,
-      "durationMs": 7338
+      "durationMs": 7384
     },
     "play:qb-sweep-handoff:step:2": {
       "id": "play:qb-sweep-handoff:step:2",
-      "hash": "d083a5afaa25345a0ef573f000057b5c41045b21",
-      "mp3": "audio/d083a5afaa25345a0ef573f000057b5c41045b21.mp3",
-      "timing": "audio/d083a5afaa25345a0ef573f000057b5c41045b21.json",
+      "hash": "86b2d4e6a737e9a81d0ad148ac885ef813d75e55",
+      "mp3": "audio/86b2d4e6a737e9a81d0ad148ac885ef813d75e55.mp3",
+      "timing": "audio/86b2d4e6a737e9a81d0ad148ac885ef813d75e55.json",
       "chars": 96,
-      "durationMs": 5759
+      "durationMs": 7105
     },
     "play:qb-sweep-handoff:step:3": {
       "id": "play:qb-sweep-handoff:step:3",
-      "hash": "c76614b4b25b1e50f25c4527230759e7437b9d18",
-      "mp3": "audio/c76614b4b25b1e50f25c4527230759e7437b9d18.mp3",
-      "timing": "audio/c76614b4b25b1e50f25c4527230759e7437b9d18.json",
+      "hash": "1cb8df1d46d1c70095a9799fd2bac4f9f9a7cce6",
+      "mp3": "audio/1cb8df1d46d1c70095a9799fd2bac4f9f9a7cce6.mp3",
+      "timing": "audio/1cb8df1d46d1c70095a9799fd2bac4f9f9a7cce6.json",
       "chars": 161,
-      "durationMs": 10495
+      "durationMs": 10774
     },
     "play:slant-flat:step:0": {
       "id": "play:slant-flat:step:0",
-      "hash": "5e5d09445e2993c2b0a43696c65d283628b2d316",
-      "mp3": "audio/5e5d09445e2993c2b0a43696c65d283628b2d316.mp3",
-      "timing": "audio/5e5d09445e2993c2b0a43696c65d283628b2d316.json",
+      "hash": "a50362980750cd3b019b5e1e3f17e0aa29d23bde",
+      "mp3": "audio/a50362980750cd3b019b5e1e3f17e0aa29d23bde.mp3",
+      "timing": "audio/a50362980750cd3b019b5e1e3f17e0aa29d23bde.json",
       "chars": 160,
-      "durationMs": 11006
+      "durationMs": 10495
     },
     "play:slant-flat:step:1": {
       "id": "play:slant-flat:step:1",
-      "hash": "a8e5ad2356468a43d75a79abbb075f008055cf40",
-      "mp3": "audio/a8e5ad2356468a43d75a79abbb075f008055cf40.mp3",
-      "timing": "audio/a8e5ad2356468a43d75a79abbb075f008055cf40.json",
+      "hash": "116d5262fcd0fa034e907f567b1606de1dba20ca",
+      "mp3": "audio/116d5262fcd0fa034e907f567b1606de1dba20ca.mp3",
+      "timing": "audio/116d5262fcd0fa034e907f567b1606de1dba20ca.json",
       "chars": 127,
-      "durationMs": 8870
+      "durationMs": 10031
     },
     "play:slant-flat:step:2": {
       "id": "play:slant-flat:step:2",
-      "hash": "482534321647530caf9d65232516d5774823974b",
-      "mp3": "audio/482534321647530caf9d65232516d5774823974b.mp3",
-      "timing": "audio/482534321647530caf9d65232516d5774823974b.json",
+      "hash": "b4dacf350543f12702c1f529138d967a5a5dd80e",
+      "mp3": "audio/b4dacf350543f12702c1f529138d967a5a5dd80e.mp3",
+      "timing": "audio/b4dacf350543f12702c1f529138d967a5a5dd80e.json",
       "chars": 175,
-      "durationMs": 12678
+      "durationMs": 12771
     },
     "play:slant-flat:step:3": {
       "id": "play:slant-flat:step:3",
-      "hash": "685ccae64ae17b3c7504f20b6b2b0ac5e11cc731",
-      "mp3": "audio/685ccae64ae17b3c7504f20b6b2b0ac5e11cc731.mp3",
-      "timing": "audio/685ccae64ae17b3c7504f20b6b2b0ac5e11cc731.json",
+      "hash": "38136ef2d93ce9aedca17ecb45737ac8174d7655",
+      "mp3": "audio/38136ef2d93ce9aedca17ecb45737ac8174d7655.mp3",
+      "timing": "audio/38136ef2d93ce9aedca17ecb45737ac8174d7655.json",
       "chars": 171,
-      "durationMs": 11981
+      "durationMs": 12678
     },
     "play:smash:step:0": {
       "id": "play:smash:step:0",
-      "hash": "0ce1db64b600e67c37df0d81c4b5114613cd61a6",
-      "mp3": "audio/0ce1db64b600e67c37df0d81c4b5114613cd61a6.mp3",
-      "timing": "audio/0ce1db64b600e67c37df0d81c4b5114613cd61a6.json",
+      "hash": "e76ce4e2c7093e38595e174929367d17ea63224a",
+      "mp3": "audio/e76ce4e2c7093e38595e174929367d17ea63224a.mp3",
+      "timing": "audio/e76ce4e2c7093e38595e174929367d17ea63224a.json",
       "chars": 110,
-      "durationMs": 7059
+      "durationMs": 8127
     },
     "play:smash:step:1": {
       "id": "play:smash:step:1",
-      "hash": "c189d71649fdc0caf143fbcc9f547cc0d5bc9a0a",
-      "mp3": "audio/c189d71649fdc0caf143fbcc9f547cc0d5bc9a0a.mp3",
-      "timing": "audio/c189d71649fdc0caf143fbcc9f547cc0d5bc9a0a.json",
+      "hash": "6472f336849e40108ac527e081dea1f217eac446",
+      "mp3": "audio/6472f336849e40108ac527e081dea1f217eac446.mp3",
+      "timing": "audio/6472f336849e40108ac527e081dea1f217eac446.json",
       "chars": 121,
-      "durationMs": 7709
+      "durationMs": 9009
     },
     "play:smash:step:2": {
       "id": "play:smash:step:2",
-      "hash": "056d603e88f1ceeaeb3e3d78acc91d80e488c8d8",
-      "mp3": "audio/056d603e88f1ceeaeb3e3d78acc91d80e488c8d8.mp3",
-      "timing": "audio/056d603e88f1ceeaeb3e3d78acc91d80e488c8d8.json",
+      "hash": "b44c74c699f7c1bc9582bb6e7fa8e1290fff4155",
+      "mp3": "audio/b44c74c699f7c1bc9582bb6e7fa8e1290fff4155.mp3",
+      "timing": "audio/b44c74c699f7c1bc9582bb6e7fa8e1290fff4155.json",
       "chars": 148,
-      "durationMs": 10077
+      "durationMs": 10913
     },
     "play:smash:step:3": {
       "id": "play:smash:step:3",
-      "hash": "aed31b9164e48bf5cdf32c22995e141c22d0b96d",
-      "mp3": "audio/aed31b9164e48bf5cdf32c22995e141c22d0b96d.mp3",
-      "timing": "audio/aed31b9164e48bf5cdf32c22995e141c22d0b96d.json",
+      "hash": "bce956df848dcb006895676d79819bd53edf3d33",
+      "mp3": "audio/bce956df848dcb006895676d79819bd53edf3d33.mp3",
+      "timing": "audio/bce956df848dcb006895676d79819bd53edf3d33.json",
       "chars": 145,
-      "durationMs": 9799
+      "durationMs": 11238
     },
     "route:curl:tip": {
       "id": "route:curl:tip",
-      "hash": "75f1a490435cf2ece97c36527f72192a4bd3e28a",
-      "mp3": "audio/75f1a490435cf2ece97c36527f72192a4bd3e28a.mp3",
-      "timing": "audio/75f1a490435cf2ece97c36527f72192a4bd3e28a.json",
+      "hash": "ee6308126ed6768dd2b664ef00013faa784367b3",
+      "mp3": "audio/ee6308126ed6768dd2b664ef00013faa784367b3.mp3",
+      "timing": "audio/ee6308126ed6768dd2b664ef00013faa784367b3.json",
       "chars": 34,
-      "durationMs": 2229
+      "durationMs": 2601
     },
     "route:go:tip": {
       "id": "route:go:tip",
-      "hash": "12fb3b636609ef1094cf10332d5472442550a1d2",
-      "mp3": "audio/12fb3b636609ef1094cf10332d5472442550a1d2.mp3",
-      "timing": "audio/12fb3b636609ef1094cf10332d5472442550a1d2.json",
+      "hash": "fe6b39cd40bd2078a735c15314ad489e5dc048b8",
+      "mp3": "audio/fe6b39cd40bd2078a735c15314ad489e5dc048b8.mp3",
+      "timing": "audio/fe6b39cd40bd2078a735c15314ad489e5dc048b8.json",
       "chars": 42,
-      "durationMs": 2461
+      "durationMs": 2972
     },
     "route:out:tip": {
       "id": "route:out:tip",
-      "hash": "24f41863ee87bd733576b041916c25f5d80a3e6a",
-      "mp3": "audio/24f41863ee87bd733576b041916c25f5d80a3e6a.mp3",
-      "timing": "audio/24f41863ee87bd733576b041916c25f5d80a3e6a.json",
+      "hash": "2f51af6c5a541e47e67d0c4e7bfa1336a33d70d9",
+      "mp3": "audio/2f51af6c5a541e47e67d0c4e7bfa1336a33d70d9.mp3",
+      "timing": "audio/2f51af6c5a541e47e67d0c4e7bfa1336a33d70d9.json",
       "chars": 42,
-      "durationMs": 2554
+      "durationMs": 2740
     },
     "route:post:tip": {
       "id": "route:post:tip",
-      "hash": "1e05e8ddfda47ac8194dd7698797002934570979",
-      "mp3": "audio/1e05e8ddfda47ac8194dd7698797002934570979.mp3",
-      "timing": "audio/1e05e8ddfda47ac8194dd7698797002934570979.json",
+      "hash": "04feee8aa343fa0fa52c11fb1ecdda867d59f21f",
+      "mp3": "audio/04feee8aa343fa0fa52c11fb1ecdda867d59f21f.mp3",
+      "timing": "audio/04feee8aa343fa0fa52c11fb1ecdda867d59f21f.json",
       "chars": 50,
-      "durationMs": 3251
+      "durationMs": 3437
     },
     "route:slant:tip": {
       "id": "route:slant:tip",
-      "hash": "1733499780f8a7718f2b3fb3720e047df797ee72",
-      "mp3": "audio/1733499780f8a7718f2b3fb3720e047df797ee72.mp3",
-      "timing": "audio/1733499780f8a7718f2b3fb3720e047df797ee72.json",
+      "hash": "ea29e96ac0fcaaabca2db3e3ba0dc706815eedbf",
+      "mp3": "audio/ea29e96ac0fcaaabca2db3e3ba0dc706815eedbf.mp3",
+      "timing": "audio/ea29e96ac0fcaaabca2db3e3ba0dc706815eedbf.json",
       "chars": 41,
-      "durationMs": 2972
+      "durationMs": 3019
     }
   }
 }

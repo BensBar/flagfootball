@@ -1,5 +1,5 @@
 export const VOICE = {
-  id: "nPczCjzI2devNBz1zQrb", // Brian
+  id: "IKne3meq5aSn9XLyUdCD", // Charlie — deep, confident, energetic
   name: "Coach Cam",
   model: "eleven_multilingual_v2",
   outputFormat: "mp3_44100_64",
