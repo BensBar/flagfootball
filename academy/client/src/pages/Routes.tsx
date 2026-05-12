@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Volume2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ROUTES } from "@/lib/playbook";
+import { routeTipScript } from "@/lib/narrationScripts";
 import { RouteDiagram } from "@/components/RouteDiagram";
 import { useCoachAudio } from "@/lib/useCoachAudio";
 import { NarrationBar } from "@/components/NarrationBar";
@@ -24,7 +25,7 @@ export function RoutesPage() {
   const active = ROUTES.find((r) => r.id === activeId) ?? ROUTES[0];
   const audio = useCoachAudio();
 
-  const script = `${active.name} route. ${active.shortDescription} ${COACH_TIPS[active.id]?.[0] ?? ""}`;
+  const script = routeTipScript(active);
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8">
