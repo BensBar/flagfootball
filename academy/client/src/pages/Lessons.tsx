@@ -1,10 +1,11 @@
 import { Link, useParams } from "wouter";
 import { useEffect, useMemo } from "react";
 import { ArrowLeft, ArrowRight, Clock, CheckCircle2 } from "lucide-react";
-import { LESSONS, lessonNarrationScript } from "@/lib/content";
+import { LESSONS } from "@/lib/content";
 import { Button } from "@/components/ui/button";
-import { useNarration } from "@/lib/useNarration";
+import { useCoachAudio } from "@/lib/useCoachAudio";
 import { NarrationBar } from "@/components/NarrationBar";
+import { CaptionedTranscript } from "@/components/CaptionedTranscript";
 import { Quiz } from "@/components/Quiz";
 import { useProgress } from "@/components/ProgressCtx";
 
@@ -71,17 +72,21 @@ export function LessonPage() {
   const id = params.id as string;
   const idx = LESSONS.findIndex((l) => l.id === id);
   const lesson = LESSONS[idx];
-  const narration = useNarration();
+  const audio = useCoachAudio();
   const { markVisited, setScore } = useProgress();
 
   useEffect(() => {
     if (lesson) markVisited(lesson.id);
     // Stop any current narration when navigating
-    return () => narration.stop();
+    return () => audio.stop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lesson?.id]);
 
-  const fullScript = useMemo(() => (lesson ? lessonNarrationScript(lesson) : ""), [lesson]);
+  // Match the audio script join logic: section bodies separated by two newlines.
+  const fullScript = useMemo(
+    () => (lesson ? lesson.sections.map((s) => s.body).join("\n\n") : ""),
+    [lesson]
+  );
 
   if (!lesson) {
     return (
@@ -119,7 +124,12 @@ export function LessonPage() {
       </header>
 
       <div className="mb-6">
-        <NarrationBar narration={narration} text={fullScript} label="Listen to this lesson" />
+        <NarrationBar
+          audio={audio}
+          id={`lesson:${lesson.id}:full`}
+          text={fullScript}
+          label="Listen to this lesson"
+        />
       </div>
 
       <article className="space-y-6">
@@ -135,7 +145,11 @@ export function LessonPage() {
               </div>
               <div className="flex-1 min-w-0">
                 <h2 className="font-display font-bold text-lg sm:text-xl tracking-tight">{s.heading}</h2>
-                <p className="mt-2 leading-relaxed text-foreground/90">{s.body}</p>
+                <CaptionedTranscript
+                  text={s.body}
+                  audio={audio}
+                  className="mt-2 leading-relaxed text-foreground/90"
+                />
                 {s.bullets && (
                   <ul className="mt-3 space-y-1.5">
                     {s.bullets.map((b, bi) => (
@@ -148,13 +162,14 @@ export function LessonPage() {
                 )}
                 <button
                   onClick={() =>
-                    narration.speak(
-                      `${s.heading}. ${s.body}${s.bullets ? " " + s.bullets.join(". ") : ""}`
-                    )
+                    audio.play({
+                      id: `lesson:${lesson.id}:section:${s.id}`,
+                      text: s.body,
+                    })
                   }
-                  className="mt-3 text-xs font-display font-semibold uppercase tracking-wider text-primary hover:underline"
+                  className="mt-3 text-xs font-display font-semibold uppercase tracking-wider text-primary hover:underline disabled:opacity-50"
                   data-testid={`button-narrate-section-${lesson.id}-${i}`}
-                  disabled={!narration.supported}
+                  disabled={!audio.hasAudio && !audio.speechSupported}
                 >
                   Read this section aloud →
                 </button>

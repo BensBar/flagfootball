@@ -9,6 +9,7 @@ export type QuizQuestion = {
 };
 
 export type LessonSection = {
+  id: string; // stable kebab-case id, unique within a lesson
   heading: string;
   body: string; // plain text (paragraph). Also used as narration source.
   bullets?: string[];
@@ -33,11 +34,13 @@ export const LESSONS: Lesson[] = [
     durationMin: 4,
     sections: [
       {
+        id: "what-is-flag-football",
         heading: "What is flag football?",
         body:
           "Flag football is a version of American football where instead of tackling, a defender pulls a flag from a belt around the ball carrier's waist. It is fast, safe, and built around throwing, catching, and running smart routes. Most middle-school games are 5-on-5 or 7-on-7 on a shorter field.",
       },
       {
+        id: "how-a-play-happens",
         heading: "How a play happens",
         body:
           "Each team gets four downs to either score or reach the next first-down line. The play starts with a snap from the center to the quarterback. The offense tries to move the ball forward by passing or handing it off. The play ends when a flag is pulled, the ball carrier steps out of bounds, the ball hits the ground, or a touchdown is scored.",
@@ -49,6 +52,7 @@ export const LESSONS: Lesson[] = [
         ],
       },
       {
+        id: "what-you-need",
         heading: "What you need",
         body:
           "You need a flag belt with two flags, athletic shoes (cleats if your field allows), and water. Mouthguards are smart. No metal cleats, no jewelry, no hats with hard brims.",
@@ -84,11 +88,13 @@ export const LESSONS: Lesson[] = [
     durationMin: 4,
     sections: [
       {
+        id: "the-field",
         heading: "The field",
         body:
           "A typical flag field is 60 to 80 yards long with two 10-yard end zones. There are mid-field lines that act as first-down markers. Stay inside the sidelines — stepping out ends the play right where your foot crossed the line.",
       },
       {
+        id: "offensive-positions",
         heading: "Offensive positions",
         body:
           "The quarterback throws and runs the offense. The center snaps the ball. Receivers run routes and catch passes. A running back may take handoffs or short passes. In smaller 5-on-5 games, almost everyone is eligible to catch a pass.",
@@ -100,6 +106,7 @@ export const LESSONS: Lesson[] = [
         ],
       },
       {
+        id: "defensive-positions",
         heading: "Defensive positions",
         body:
           "Defenders include rushers who try to pressure the quarterback, linebackers who patrol short and middle zones, and cornerbacks and safeties who cover receivers. The rusher must usually start 7 yards back from the line of scrimmage — your league will tell you the exact rule.",
@@ -135,11 +142,13 @@ export const LESSONS: Lesson[] = [
     durationMin: 5,
     sections: [
       {
+        id: "goal-of-the-offense",
         heading: "Goal of the offense",
         body:
           "Your job on offense is to move the ball forward and score. The smartest offenses share the ball, mix runs and passes, and make decisions fast. Every player has a job on every play — even if you do not get the ball.",
       },
       {
+        id: "reading-the-defense",
         heading: "Reading the defense",
         body:
           "Before the snap, look at how the defense is lined up. If defenders are far away, a short pass is open. If they are close, a deeper route can beat them. Coaches call this 'pre-snap read.' Talk with your quarterback so you both expect the same thing.",
@@ -150,6 +159,7 @@ export const LESSONS: Lesson[] = [
         ],
       },
       {
+        id: "protecting-the-ball",
         heading: "Protecting the ball",
         body:
           "Carry the ball with two hands when you can. Keep your flags clean — that means do not let your shirt cover them, and do not grab a defender's hand to keep your flag on. That is called flag-guarding, and it is a penalty.",
@@ -179,11 +189,13 @@ export const LESSONS: Lesson[] = [
     durationMin: 5,
     sections: [
       {
+        id: "goal-of-the-defense",
         heading: "Goal of the defense",
         body:
           "Defense wins games. Your job is to keep the offense from moving forward, force incompletions, and pull flags as soon as the ball is caught or carried. Speed and angles matter more than size.",
       },
       {
+        id: "taking-the-right-angle",
         heading: "Taking the right angle",
         body:
           "When chasing a ball carrier, do not run straight at them — they will juke you. Aim for a spot a few steps in front of where they are going. This is called your pursuit angle. Stay low, keep your eyes on their hips, and reach for the flag with both hands.",
@@ -194,6 +206,7 @@ export const LESSONS: Lesson[] = [
         ],
       },
       {
+        id: "man-and-zone-coverage",
         heading: "Man and zone coverage",
         body:
           "In man coverage, each defender follows one receiver wherever they go. In zone coverage, each defender protects an area of the field. Zone is easier to learn — stay in your area, and if a receiver enters it, cover them until they leave.",
@@ -223,11 +236,13 @@ export const LESSONS: Lesson[] = [
     durationMin: 5,
     sections: [
       {
+        id: "why-routes-matter",
         heading: "Why routes matter",
         body:
           "A route is the path you run after the snap. Good routes get you open, bad routes let defenders sit on you. The best receivers run routes the same way every time so their quarterback knows exactly where they will be.",
       },
       {
+        id: "five-must-know-routes",
         heading: "Five must-know routes",
         body:
           "Learn these five and you can play any wide-receiver spot: the slant, the out, the curl, the post, and the go. Each cut is sharp — plant your outside foot and explode in the new direction.",
@@ -240,6 +255,7 @@ export const LESSONS: Lesson[] = [
         ],
       },
       {
+        id: "selling-the-route",
         heading: "Selling the route",
         body:
           "Run every route like it is a deep go. If the defender thinks you are running deep, a short cut will be wide open. Use a head fake or a small shoulder dip to freeze them before your real cut.",
@@ -269,11 +285,13 @@ export const LESSONS: Lesson[] = [
     durationMin: 4,
     sections: [
       {
+        id: "stance-and-approach",
         heading: "Stance and approach",
         body:
           "Get low. Bend your knees, not your back. Keep your feet shoulder-width apart and your hands ready. When you approach a runner, slow down a little so you can change direction with them.",
       },
       {
+        id: "the-pull",
         heading: "The pull",
         body:
           "Aim for the flag belt at the runner's hips. Watch the hips, not the ball. Reach with both hands, grab one flag, and pull straight down — never up, never sideways. Pulling sideways often misses; pulling down comes off clean.",
@@ -285,6 +303,7 @@ export const LESSONS: Lesson[] = [
         ],
       },
       {
+        id: "what-not-to-do",
         heading: "What not to do",
         body:
           "Do not push, grab a shirt, tackle, or trip. Do not dive at the runner's feet. If you miss the flag, recover quickly — a teammate is coming behind you.",
@@ -314,6 +333,7 @@ export const LESSONS: Lesson[] = [
     durationMin: 5,
     sections: [
       {
+        id: "common-penalties",
         heading: "Common penalties",
         body:
           "Most penalties are 5 yards. Flag-guarding, holding, offsides, and illegal contact are the big ones. A pass-interference penalty in the end zone is a spot foul — the ball moves to the spot of the foul.",
@@ -326,11 +346,13 @@ export const LESSONS: Lesson[] = [
         ],
       },
       {
+        id: "safety",
         heading: "Safety",
         body:
           "Flag football is safer than tackle, but injuries still happen. Warm up before games, hydrate, wear a mouthguard if you have one, and never play through head, neck, or joint pain. Tell a coach right away.",
       },
       {
+        id: "sportsmanship",
         heading: "Sportsmanship",
         body:
           "Help your opponent up. Compliment a great catch, even if it was against you. Trash talk hurts teams more than it helps. Officials make calls in real time — you can ask politely, but you do not get to argue.",
@@ -370,11 +392,13 @@ export const LESSONS: Lesson[] = [
     durationMin: 4,
     sections: [
       {
+        id: "catching",
         heading: "Catching",
         body:
           "Hold your hands out with thumbs together for chest-high passes, and pinkies together for low passes. Look the ball all the way into your hands. Practice with a friend, a wall, or a self-rebounder.",
       },
       {
+        id: "footwork",
         heading: "Footwork",
         body:
           "Set up four cones in a square, about three yards apart. Sprint, shuffle, back-pedal, and shuffle. Twenty seconds on, ten seconds off. Three rounds. This builds the change-of-direction speed every flag player needs.",
@@ -385,6 +409,7 @@ export const LESSONS: Lesson[] = [
         ],
       },
       {
+        id: "flag-pulling-reps",
         heading: "Flag pulling reps",
         body:
           "Have a partner jog in a straight line. You shadow them and pull one flag with proper form. Switch. Do ten reps each, then add cuts and jukes. Make it game-speed once you have the technique.",
@@ -419,16 +444,19 @@ export const LESSONS: Lesson[] = [
     durationMin: 3,
     sections: [
       {
+        id: "night-before",
         heading: "Night before",
         body:
           "Pack your bag, fill your water bottle, and eat a normal dinner — nothing wild or new. Set out your uniform. Aim for nine hours of sleep. A good warm body beats a tired strong one.",
       },
       {
+        id: "morning-of",
         heading: "Morning of",
         body:
           "Eat a real breakfast at least 90 minutes before kickoff. Hydrate with water. Skip soda and energy drinks. Get to the field thirty minutes early so you can warm up without rushing.",
       },
       {
+        id: "mindset",
         heading: "Mindset",
         body:
           "Confidence beats nerves. Picture yourself making the catch, pulling the flag, and celebrating with your team. Be a great teammate from warmup to handshake line. Have fun — that is when you play your best.",

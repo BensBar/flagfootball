@@ -228,7 +228,21 @@ export function FieldDiagram({ play, step, playing, onProgress, reducedMotion }:
           opacity="0.7"
         />
 
-        {/* Defender paths (none) — defenders stay put for clarity */}
+        {/* Defender pursuit paths — subtle traces so the matchup reads visually */}
+        {play.actors
+          .filter((a) => a.color === "defense" && a.path && a.path.length > 1)
+          .map((a) => (
+            <g key={`dp-${a.id}`}>
+              <path
+                d={pathPoints(a.path!)}
+                fill="none"
+                stroke="hsl(48 100% 58% / 0.28)"
+                strokeWidth="0.5"
+                strokeDasharray="0.8 1.2"
+                strokeLinecap="round"
+              />
+            </g>
+          ))}
 
         {/* Offense route paths */}
         {play.actors

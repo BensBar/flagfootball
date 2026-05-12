@@ -1,20 +1,32 @@
-import { Play, Pause, Square, Volume2, AlertTriangle } from "lucide-react";
+import { Play, Pause, Square, AlertTriangle, Mic, Volume2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
-import type { useNarration } from "@/lib/useNarration";
+import type { CoachAudio } from "@/lib/useCoachAudio";
 
 type Props = {
-  narration: ReturnType<typeof useNarration>;
+  audio: CoachAudio;
   text: string;
+  id?: string;
   label?: string;
 };
 
-export function NarrationBar({ narration, text, label = "Narrate this lesson" }: Props) {
-  const { supported, voices, voiceURI, setVoiceURI, rate, setRate, isSpeaking, isPaused, speak, pause, resume, stop } =
-    narration;
+export function NarrationBar({ audio, text, id, label = "Narrate this lesson" }: Props) {
+  const {
+    mode,
+    isPlaying,
+    isPaused,
+    play,
+    pause,
+    resume,
+    stop,
+    playbackRate,
+    setPlaybackRate,
+    speechSupported,
+    hasAudio,
+  } = audio;
 
-  if (!supported) {
+  // If neither audio nor speech is available, nothing useful we can do.
+  if (!hasAudio && !speechSupported) {
     return (
       <div
         className="rounded-lg border border-card-border bg-card/60 p-3 flex items-start gap-3 text-sm"
@@ -23,26 +35,68 @@ export function NarrationBar({ narration, text, label = "Narrate this lesson" }:
         <AlertTriangle className="size-4 mt-0.5 text-accent shrink-0" />
         <div>
           <div className="font-semibold">Voice narration not available in this browser</div>
-          <div className="text-muted-foreground">You can still read every lesson below. Try Chrome, Edge, or Safari for narration.</div>
+          <div className="text-muted-foreground">
+            You can still read every lesson below. Try Chrome, Edge, or Safari for narration.
+          </div>
         </div>
       </div>
     );
   }
 
+  // Use audio mode when we have an id AND the manifest indicates audio is available.
+  // The runtime fallback in useCoachAudio will demote to speech if anything fails.
+  const onPlay = () => {
+    if (isPaused) {
+      resume();
+      return;
+    }
+    // If no id was supplied, we have nothing to look up in the manifest;
+    // pass a synthetic id that will never match and will fall straight through to speech.
+    play({ id: id ?? "__no_id__", text });
+  };
+
+  // The badge only reflects committed state once playback starts.
+  const showCoachCam = mode === "audio";
+  const showBrowserVoice = mode === "speech";
+
   return (
-    <div className="rounded-xl border border-card-border bg-card/80 backdrop-blur p-3 sm:p-4 shadow-md" data-testid="narration-bar">
+    <div
+      className="rounded-xl border border-card-border bg-card/80 backdrop-blur p-3 sm:p-4 shadow-md"
+      data-testid="narration-bar"
+    >
       <div className="flex flex-wrap items-center gap-2 sm:gap-3">
         <div className="flex items-center gap-2 mr-1">
-          <Volume2 className="size-4 text-primary" aria-hidden />
+          {showCoachCam ? (
+            <span
+              className="inline-flex items-center gap-1 rounded-full bg-primary/15 px-2 py-0.5 text-[10px] font-display font-semibold uppercase tracking-wider text-primary neon-border"
+              data-testid="badge-coach-cam"
+            >
+              <Mic className="size-3" aria-hidden /> Coach Cam 🎙️
+            </span>
+          ) : showBrowserVoice ? (
+            <span
+              className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[10px] font-display font-semibold uppercase tracking-wider text-muted-foreground"
+              data-testid="badge-browser-voice"
+            >
+              <Volume2 className="size-3" aria-hidden /> Browser voice
+            </span>
+          ) : (
+            <span
+              className="inline-flex items-center gap-1 rounded-full bg-card px-2 py-0.5 text-[10px] font-display font-semibold uppercase tracking-wider text-muted-foreground border border-card-border"
+              data-testid="badge-narrate-idle"
+            >
+              <Volume2 className="size-3" aria-hidden /> {hasAudio ? "Coach Cam ready" : "Browser voice"}
+            </span>
+          )}
           <span className="text-xs font-display tracking-wider uppercase font-semibold text-muted-foreground hidden sm:inline">
             {label}
           </span>
         </div>
 
-        {!isSpeaking || (isSpeaking && isPaused) ? (
+        {!isPlaying ? (
           <Button
             size="sm"
-            onClick={() => (isPaused ? resume() : speak(text))}
+            onClick={onPlay}
             data-testid="button-narrate-play"
             aria-label={isPaused ? "Resume narration" : "Play narration"}
           >
@@ -50,7 +104,13 @@ export function NarrationBar({ narration, text, label = "Narrate this lesson" }:
             {isPaused ? "Resume" : "Play"}
           </Button>
         ) : (
-          <Button size="sm" variant="secondary" onClick={pause} data-testid="button-narrate-pause" aria-label="Pause narration">
+          <Button
+            size="sm"
+            variant="secondary"
+            onClick={pause}
+            data-testid="button-narrate-pause"
+            aria-label="Pause narration"
+          >
             <Pause className="size-4 mr-1" />
             Pause
           </Button>
@@ -59,7 +119,7 @@ export function NarrationBar({ narration, text, label = "Narrate this lesson" }:
           size="sm"
           variant="outline"
           onClick={stop}
-          disabled={!isSpeaking && !isPaused}
+          disabled={!isPlaying && !isPaused}
           data-testid="button-narrate-stop"
           aria-label="Stop narration"
         >
@@ -68,36 +128,20 @@ export function NarrationBar({ narration, text, label = "Narrate this lesson" }:
         </Button>
 
         <div className="flex items-center gap-2 ml-auto">
-          {voices.length > 0 && (
-            <Select value={voiceURI ?? undefined} onValueChange={(v) => setVoiceURI(v)}>
-              <SelectTrigger
-                className="h-8 w-[160px] sm:w-[200px] text-xs"
-                data-testid="select-narrate-voice"
-                aria-label="Narration voice"
-              >
-                <SelectValue placeholder="Voice" />
-              </SelectTrigger>
-              <SelectContent>
-                {voices.map((v) => (
-                  <SelectItem key={v.voiceURI} value={v.voiceURI} className="text-xs">
-                    {v.name} {v.lang ? `· ${v.lang}` : ""}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          )}
-          <div className="flex items-center gap-2 w-[140px]" aria-label="Narration speed">
+          <div className="flex items-center gap-2 w-[160px]" aria-label="Narration speed">
             <span className="text-[10px] font-display uppercase text-muted-foreground tracking-wider">Speed</span>
             <Slider
-              min={0.6}
-              max={1.4}
+              min={0.75}
+              max={1.5}
               step={0.05}
-              value={[rate]}
-              onValueChange={(v) => setRate(v[0])}
+              value={[playbackRate]}
+              onValueChange={(v) => setPlaybackRate(v[0])}
               data-testid="slider-narrate-rate"
               aria-label="Narration speed"
             />
-            <span className="text-xs font-mono tabular w-8 text-right text-muted-foreground">{rate.toFixed(2)}×</span>
+            <span className="text-xs font-mono tabular w-8 text-right text-muted-foreground">
+              {playbackRate.toFixed(2)}×
+            </span>
           </div>
         </div>
       </div>

@@ -1,8 +1,9 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useMemo, type ReactNode } from "react";
+import { useProgressStore } from "@/lib/useProgressStore";
 
 type LessonState = {
   visited: boolean;
-  score: number | null; // null = not taken
+  score: number | null;
   total: number | null;
 };
 
@@ -10,25 +11,33 @@ type Ctx = {
   progress: Record<string, LessonState>;
   markVisited: (id: string) => void;
   setScore: (id: string, score: number, total: number) => void;
+  resetAll: () => void;
 };
 
 const ProgressContext = createContext<Ctx | null>(null);
 
 export function ProgressProvider({ children, lessonIds }: { children: ReactNode; lessonIds: string[] }) {
-  const [progress, setProgress] = useState<Record<string, LessonState>>(() => {
-    const o: Record<string, LessonState> = {};
-    for (const id of lessonIds) o[id] = { visited: false, score: null, total: null };
-    return o;
-  });
+  const store = useProgressStore();
 
-  const markVisited = (id: string) =>
-    setProgress((p) => ({ ...p, [id]: { ...(p[id] ?? { score: null, total: null }), visited: true } }));
-  const setScore = (id: string, score: number, total: number) =>
-    setProgress((p) => ({ ...p, [id]: { ...(p[id] ?? { visited: true }), visited: true, score, total } }));
+  const value = useMemo<Ctx>(() => {
+    const progress: Record<string, LessonState> = {};
+    for (const id of lessonIds) {
+      const quiz = store.data.quizScores[id];
+      progress[id] = {
+        visited: Boolean(store.data.lessonsVisited[id]),
+        score: quiz ? quiz.correct : null,
+        total: quiz ? quiz.total : null,
+      };
+    }
+    return {
+      progress,
+      markVisited: store.markLessonVisited,
+      setScore: store.recordQuizScore,
+      resetAll: store.resetAll,
+    };
+  }, [store, lessonIds]);
 
-  return (
-    <ProgressContext.Provider value={{ progress, markVisited, setScore }}>{children}</ProgressContext.Provider>
-  );
+  return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;
 }
 
 export function useProgress() {
