@@ -59,10 +59,21 @@ export function CaptionedTranscript({ text, audio, className }: Props) {
 
   const timing = audio.timing;
   // The timing characters array is the source of truth for character offsets.
-  // It should match `text` character-for-character when generated from the same
-  // source string. If they diverge in length, fall back to plain text.
+  // ElevenLabs typically prepends/appends a single space to the spoken text, so
+  // we locate the displayed `text` within the joined timing string and offset
+  // all highlight indices by that position. If the text isn't found at all,
+  // a different clip (e.g. full-lesson) is playing — fall back to plain text.
   const timedChars = timing.characters;
   if (!timedChars || timedChars.length === 0) {
+    return (
+      <p className={className} data-testid="captioned-transcript">
+        {text}
+      </p>
+    );
+  }
+  const joined = timedChars.join("");
+  const offset = joined.indexOf(text);
+  if (offset < 0) {
     return (
       <p className={className} data-testid="captioned-transcript">
         {text}
@@ -72,15 +83,18 @@ export function CaptionedTranscript({ text, audio, className }: Props) {
 
   const charIdx = activeCharIndex(timing.character_end_times_seconds, audio.currentTime);
 
+  // Map absolute timing-character index into our local `text` coordinate.
+  const localCharIdx = charIdx >= 0 ? charIdx - offset : -1;
+
   // Find the word that contains the active character index.
   let activeWord = -1;
-  if (charIdx >= 0) {
+  if (localCharIdx >= 0 && localCharIdx < text.length) {
     for (let i = 0; i < words.length; i++) {
-      if (charIdx >= words[i].start && charIdx <= words[i].end) {
+      if (localCharIdx >= words[i].start && localCharIdx <= words[i].end) {
         activeWord = i;
         break;
       }
-      if (charIdx < words[i].start) {
+      if (localCharIdx < words[i].start) {
         // Active char is in inter-word whitespace; highlight the previous word
         // so the reader's eye stays on the last spoken word.
         activeWord = Math.max(0, i - 1);
