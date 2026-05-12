@@ -59,11 +59,37 @@ npm run check       # TypeScript type-check (passes)
 npm run build       # production build (passes)
 ```
 
+## v2 upgrade (Coach Cam)
+
+The app now ships a "Coach Cam" voice powered by pre-generated **ElevenLabs** audio with the browser's Web Speech API as an automatic fallback. Highlights:
+
+- **Audio pipeline** (`script/audio/`): `npm run audio` walks every narratable unit (lessons, playbook steps, route tips) and writes content-hashed MP3 + timing JSON files to `client/public/audio/`, plus a `manifest.json` mapping logical IDs (`lesson:basics:full`, `play:slant-flat:step:0`, `route:slant:tip`, etc.) to files. Idempotent (skip-if-cached), supports `--dry-run`, `--only=<prefix>`, `--force`. Requires `ELEVENLABS_API_KEY` in `.env.local` (gitignored; see `.env.example`).
+- **Voice**: Brian (`nPczCjzI2devNBz1zQrb`), model `eleven_multilingual_v2`, mp3_44100_64. Single constant in `script/audio/voice-config.ts` — swap for a cloned voice anytime.
+- **Runtime** (`client/src/lib/useCoachAudio.ts`): `HTMLAudioElement` + manifest lookup, automatic Web Speech fallback when the manifest is missing, an entry is missing, or the MP3 fails to load. Speed slider drives both `audio.playbackRate` and speech rate. Mode-aware badge in `NarrationBar` ("Coach Cam 🎙️" vs. "Browser voice").
+- **Karaoke captions** (`client/src/components/CaptionedTranscript.tsx`): word-level highlight driven by ElevenLabs character-end timings. Plain text when in fallback mode or `prefers-reduced-motion`.
+- **Persistent progress** (`client/src/lib/useProgressStore.ts`): `localStorage`-backed with versioned schema, cross-tab sync via `storage` event, pub/sub via `useSyncExternalStore`. `ProgressCtx` preserves its old API (`progress`, `markVisited`, `setScore`) and adds `resetAll()`. Reset UI on `/progress` with `AlertDialog` confirmation.
+- **Animated defenders**: all 3 plays now show 5 defenders (2 CB, 1 LB, 2 S) moving along scheme-appropriate paths (Cover 2 zone for Slant & Flat / Smash, run fits for Sweep). Reuses existing `Actor.path` machinery.
+- **Final exam** (`/exam`): 12-question shuffled pool drawn from every lesson quiz, options re-randomized, "Review your misses" with remediation links, printable certificate on pass (≥75%). Name prompt persists via `setStudentName`.
+- **PWA**: `vite-plugin-pwa` with `autoUpdate`, web manifest, 192/512/maskable icons (generated from the inline Logo via `npm run icons`). Workbox precaches the shell (~544 KiB); `/audio/*` is runtime-cached with `StaleWhileRevalidate` (`coach-audio-v1`, 100 entries, 30 days). `usePWAInstall` hook for an install affordance.
+
+## Commands (updated)
+
+```bash
+cd academy
+npm install
+npm run dev           # dev server on port 5000
+npm run check         # tsc
+npm run build         # production build (includes PWA service worker)
+npm run audio         # generate ElevenLabs MP3s + manifest (needs ELEVENLABS_API_KEY)
+npm run audio -- --dry-run             # list what would be generated
+npm run audio -- --only=lesson:basics  # generate one lesson
+npm run icons         # regenerate PWA icons (macOS sips)
+```
+
 ## Limitations / notes
 
-- The Web Speech API is browser-dependent. Chrome, Edge, and Safari have wide support; some Linux/headless environments lack voices. The app shows a clear, friendly fallback when narration isn't available, and lessons remain fully readable as text.
-- The play diagrams use a simplified single defensive front and do not move defenders along paths — that was a deliberate clarity choice so 8th graders can focus on the offensive concept. Could be added later.
-- Progress is intentionally session-only (no persistence) per the requirements. Refreshing resets the scoreboard.
+- The Web Speech API is browser-dependent. The app uses it as a graceful fallback whenever an ElevenLabs MP3 isn't available for a given ID (e.g., before `npm run audio` has been run, or for content added after the last audio build).
+- Progress now persists in `localStorage` per device. To clear, use the "Reset progress" button on `/progress`.
 - The template ships with Express + SQLite + Drizzle for backends; none are used here. The app still boots through the template's server because `npm run dev` runs it, but no API routes were added.
 
 ## Deployment instructions

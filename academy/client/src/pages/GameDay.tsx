@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Check, Volume2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useNarration } from "@/lib/useNarration";
+import { useCoachAudio } from "@/lib/useCoachAudio";
 import { NarrationBar } from "@/components/NarrationBar";
 
 const CHECKLIST: { group: string; items: string[] }[] = [
@@ -58,7 +58,7 @@ const CHECKLIST: { group: string; items: string[] }[] = [
 
 export function GameDay() {
   const [checked, setChecked] = useState<Record<string, boolean>>({});
-  const narration = useNarration();
+  const audio = useCoachAudio();
 
   const totalItems = CHECKLIST.reduce((acc, g) => acc + g.items.length, 0);
   const doneCount = Object.values(checked).filter(Boolean).length;
@@ -86,7 +86,7 @@ export function GameDay() {
       </header>
 
       <div className="mb-6">
-        <NarrationBar narration={narration} text={fullScript} label="Read the whole checklist" />
+        <NarrationBar audio={audio} text={fullScript} label="Read the whole checklist" />
       </div>
 
       {/* Progress bar */}
@@ -132,9 +132,12 @@ export function GameDay() {
               <h2 className="font-display font-extrabold text-lg tracking-tight">{group.group}</h2>
               <button
                 onClick={() =>
-                  narration.speak(`${group.group}. ${group.items.join(". ")}.`)
+                  audio.play({
+                    id: `gameday:group:${group.group.replace(/\s+/g, "-").toLowerCase()}`,
+                    text: `${group.group}. ${group.items.join(". ")}.`,
+                  })
                 }
-                disabled={!narration.supported}
+                disabled={!audio.hasAudio && !audio.speechSupported}
                 className="inline-flex items-center gap-1 text-xs font-display font-semibold uppercase tracking-wider text-primary hover:underline disabled:text-muted-foreground disabled:no-underline"
                 data-testid={`button-narrate-group-${group.group.replace(/\s+/g, "-").toLowerCase()}`}
               >

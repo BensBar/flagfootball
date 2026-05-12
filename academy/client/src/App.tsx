@@ -17,6 +17,7 @@ import { Playbook } from "@/pages/Playbook";
 import { RoutesPage } from "@/pages/Routes";
 import { GameDay } from "@/pages/GameDay";
 import { ProgressPage } from "@/pages/Progress";
+import { Exam } from "@/pages/Exam";
 
 function AppRouter() {
   return (
@@ -28,6 +29,7 @@ function AppRouter() {
       <Route path="/lessons/:id" component={LessonPage} />
       <Route path="/gameday" component={GameDay} />
       <Route path="/progress" component={ProgressPage} />
+      <Route path="/exam" component={Exam} />
       <Route component={NotFound} />
     </Switch>
   );

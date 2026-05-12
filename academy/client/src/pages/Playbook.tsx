@@ -3,7 +3,7 @@ import { Play as PlayIcon, Pause, SkipBack, SkipForward, RotateCcw, Volume2, Vol
 import { Button } from "@/components/ui/button";
 import { PLAYS } from "@/lib/playbook";
 import { FieldDiagram } from "@/components/FieldDiagram";
-import { useNarration } from "@/lib/useNarration";
+import { useCoachAudio } from "@/lib/useCoachAudio";
 import { useReducedMotion } from "@/components/ReducedMotionCtx";
 
 export function Playbook() {
@@ -13,7 +13,7 @@ export function Playbook() {
   const [playing, setPlaying] = useState(false);
   const [narrateOn, setNarrateOn] = useState(true);
   const reduced = useReducedMotion();
-  const narration = useNarration();
+  const audio = useCoachAudio();
   const stepRef = useRef(0);
   stepRef.current = step;
 
@@ -21,7 +21,7 @@ export function Playbook() {
   useEffect(() => {
     setStep(0);
     setPlaying(false);
-    narration.stop();
+    audio.stop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeId]);
 
@@ -43,11 +43,12 @@ export function Playbook() {
 
   // Narrate the current step
   useEffect(() => {
-    if (!narrateOn || !narration.supported) return;
+    if (!narrateOn) return;
+    if (!audio.hasAudio && !audio.speechSupported) return;
     const s = active.steps[step];
     if (!s) return;
     const txt = `${s.title}. ${s.description}`;
-    narration.speak(txt);
+    audio.play({ id: `play:${active.id}:step:${step}`, text: txt });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step, activeId, narrateOn]);
 
@@ -151,12 +152,12 @@ export function Playbook() {
                 size="sm"
                 variant={narrateOn ? "default" : "outline"}
                 onClick={() => {
-                  if (narrateOn) narration.stop();
+                  if (narrateOn) audio.stop();
                   setNarrateOn(!narrateOn);
                 }}
                 data-testid="button-toggle-narrate"
                 aria-pressed={narrateOn}
-                disabled={!narration.supported}
+                disabled={!audio.hasAudio && !audio.speechSupported}
               >
                 {narrateOn ? <Volume2 className="size-4 mr-1" /> : <VolumeX className="size-4 mr-1" />}
                 Narrate

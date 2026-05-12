@@ -3,7 +3,7 @@ import { Volume2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ROUTES } from "@/lib/playbook";
 import { RouteDiagram } from "@/components/RouteDiagram";
-import { useNarration } from "@/lib/useNarration";
+import { useCoachAudio } from "@/lib/useCoachAudio";
 import { NarrationBar } from "@/components/NarrationBar";
 
 const COACH_TIPS: Record<string, string[]> = {
@@ -22,7 +22,7 @@ const COACH_TIPS: Record<string, string[]> = {
 export function RoutesPage() {
   const [activeId, setActiveId] = useState(ROUTES[0].id);
   const active = ROUTES.find((r) => r.id === activeId) ?? ROUTES[0];
-  const narration = useNarration();
+  const audio = useCoachAudio();
 
   const script = `${active.name} route. ${active.shortDescription} ${COACH_TIPS[active.id]?.[0] ?? ""}`;
 
@@ -41,7 +41,7 @@ export function RoutesPage() {
       </header>
 
       <div className="mb-6">
-        <NarrationBar narration={narration} text={script} label="Coach me on this route" />
+        <NarrationBar audio={audio} id={`route:${active.id}:tip`} text={script} label="Coach me on this route" />
       </div>
 
       <div className="grid lg:grid-cols-[1fr_1.4fr] gap-6 items-start">
@@ -95,8 +95,8 @@ export function RoutesPage() {
             <Button
               size="sm"
               variant="outline"
-              onClick={() => narration.speak(script)}
-              disabled={!narration.supported}
+              onClick={() => audio.play({ id: `route:${active.id}:tip`, text: script })}
+              disabled={!audio.hasAudio && !audio.speechSupported}
               data-testid="button-narrate-route"
             >
               <Volume2 className="size-4 mr-1" />

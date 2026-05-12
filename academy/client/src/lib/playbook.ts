@@ -12,6 +12,7 @@ export type Actor = {
 };
 
 export type PlayStep = {
+  id: string; // stable kebab-case id, unique within a play
   title: string;
   description: string;
   // 0..1 progress along each actor's path that should be highlighted at this step
@@ -91,31 +92,97 @@ export const PLAYS: Play[] = [
           [LOS + 22, 50],
         ],
       },
-      // Defenders (simple zone)
-      { id: "d1", label: "CB", role: "DEF", color: "defense", start: [LOS + 6, 12] },
-      { id: "d2", label: "LB", role: "DEF", color: "defense", start: [LOS + 8, Y_MID] },
-      { id: "d3", label: "CB", role: "DEF", color: "defense", start: [LOS + 6, 48] },
+      // Defenders — Cover 2 zone (2 CB, 1 LB, 2 S)
+      {
+        id: "d-cb1",
+        label: "CB",
+        role: "DEF",
+        color: "defense",
+        start: [LOS + 5, 12],
+        // top corner bails to the flat as RB/WR threaten
+        path: [
+          [LOS + 5, 12],
+          [LOS + 7, 10],
+          [LOS + 10, 8],
+        ],
+      },
+      {
+        id: "d-lb",
+        label: "LB",
+        role: "DEF",
+        color: "defense",
+        start: [LOS + 7, Y_MID],
+        // LB shuffles to the slant window
+        path: [
+          [LOS + 7, Y_MID],
+          [LOS + 11, 26],
+          [LOS + 16, 24],
+        ],
+      },
+      {
+        id: "d-cb2",
+        label: "CB",
+        role: "DEF",
+        color: "defense",
+        start: [LOS + 5, 48],
+        // bottom corner drives the flat as the RB leaks out
+        path: [
+          [LOS + 5, 48],
+          [LOS + 8, 50],
+          [LOS + 12, 50],
+        ],
+      },
+      {
+        id: "d-s1",
+        label: "S",
+        role: "DEF",
+        color: "defense",
+        start: [LOS + 18, 18],
+        // strong safety holds the deep half, drifts with the slant
+        path: [
+          [LOS + 18, 18],
+          [LOS + 22, 20],
+          [LOS + 26, 24],
+        ],
+      },
+      {
+        id: "d-s2",
+        label: "S",
+        role: "DEF",
+        color: "defense",
+        start: [LOS + 18, 42],
+        // free safety stays deep on his half
+        path: [
+          [LOS + 18, 42],
+          [LOS + 22, 40],
+          [LOS + 26, 38],
+        ],
+      },
     ],
     steps: [
       {
+        id: "pre-snap",
         title: "1. Pre-snap",
         description:
           "Two receivers split wide. The running back lines up next to the QB. Check the defense — if the cornerback over X is sitting deep, the slant is hot.",
         highlightActors: ["wr1", "rb"],
       },
       {
+        id: "snap",
         title: "2. Snap",
         description:
           "The center snaps the ball. The QB takes a quick drop. X explodes off the line. The RB shows pass-block, then releases.",
         highlightActors: ["qb", "c"],
       },
       {
+        id: "routes-break",
         title: "3. Routes break",
         description:
           "X takes three quick steps, plants the outside foot, and slants at 45° toward the middle. The RB drifts to the flat — wide open if the linebacker stays inside.",
         highlightActors: ["wr1", "rb"],
       },
       {
+        id: "throw-and-catch",
         title: "4. Throw & catch",
         description:
           "The QB throws to the slant in stride. Catch with thumbs together, tuck the ball, and run upfield. If the slant is covered, dump it to the RB in the flat.",
@@ -166,29 +233,96 @@ export const PLAYS: Play[] = [
         ],
       },
       { id: "rb", label: "RB", role: "RB", color: "offense", start: [LOS - 4, Y_MID + 6] },
-      { id: "d1", label: "CB", role: "DEF", color: "defense", start: [LOS + 8, 14] },
-      { id: "d2", label: "S", role: "DEF", color: "defense", start: [LOS + 18, 18] },
-      { id: "d3", label: "CB", role: "DEF", color: "defense", start: [LOS + 8, 48] },
+      // Defenders — Cover 2 vs. smash (2 CB, 1 LB, 2 S)
+      {
+        id: "d-cb1",
+        label: "CB",
+        role: "DEF",
+        color: "defense",
+        start: [LOS + 7, 14],
+        // corner sinks UNDER the corner route to undercut it
+        path: [
+          [LOS + 7, 14],
+          [LOS + 11, 12],
+          [LOS + 16, 10],
+        ],
+      },
+      {
+        id: "d-s1",
+        label: "S",
+        role: "DEF",
+        color: "defense",
+        start: [LOS + 18, 18],
+        // strong safety drives ON the corner route
+        path: [
+          [LOS + 18, 18],
+          [LOS + 26, 12],
+          [LOS + 34, 6],
+        ],
+      },
+      {
+        id: "d-lb",
+        label: "LB",
+        role: "DEF",
+        color: "defense",
+        start: [LOS + 8, 26],
+        // LB carries the hitch / curl underneath
+        path: [
+          [LOS + 8, 26],
+          [LOS + 10, 18],
+          [LOS + 10, 14],
+        ],
+      },
+      {
+        id: "d-cb2",
+        label: "CB",
+        role: "DEF",
+        color: "defense",
+        start: [LOS + 7, 46],
+        // backside corner holds his flat
+        path: [
+          [LOS + 7, 46],
+          [LOS + 9, 48],
+          [LOS + 11, 48],
+        ],
+      },
+      {
+        id: "d-s2",
+        label: "S",
+        role: "DEF",
+        color: "defense",
+        start: [LOS + 20, 42],
+        // free safety rotates to the deep half away from the smash
+        path: [
+          [LOS + 20, 42],
+          [LOS + 26, 38],
+          [LOS + 32, 34],
+        ],
+      },
     ],
     steps: [
       {
+        id: "setup",
         title: "1. Setup",
         description:
           "Two receivers stack on the same side. Z lines up just inside X. Defenders show a single deep safety.",
       },
       {
+        id: "snap",
         title: "2. Snap",
         description:
           "X runs a 5-yard curl, turning back to the QB. Z fires straight at the cornerback, then breaks toward the corner.",
         highlightActors: ["wr1", "wr2"],
       },
       {
+        id: "read-the-safety",
         title: "3. Read the safety",
         description:
           "QB looks at the deep safety. If the safety jumps the corner route, throw the curl. If the safety stays middle, throw the corner.",
         highlightActors: ["qb"],
       },
       {
+        id: "deliver",
         title: "4. Deliver",
         description:
           "Throw with touch on the corner route — high and toward the sideline so only Z can catch it. On the curl, throw firm and on the chest.",
@@ -238,28 +372,96 @@ export const PLAYS: Play[] = [
         ],
       },
       { id: "wr2", label: "Z", role: "WR", color: "offense", start: [LOS, 10] },
-      { id: "d1", label: "LB", role: "DEF", color: "defense", start: [LOS + 8, Y_MID] },
-      { id: "d2", label: "CB", role: "DEF", color: "defense", start: [LOS + 6, 50] },
+      // Defenders — 7-on-7 fit vs. sweep (2 CB, 1 LB, 2 S incl. edge)
+      {
+        id: "d-lb",
+        label: "LB",
+        role: "DEF",
+        color: "defense",
+        start: [LOS + 7, Y_MID],
+        // backside LB pursues across the formation, chasing the RB
+        path: [
+          [LOS + 7, Y_MID],
+          [LOS + 12, 38],
+          [LOS + 20, 46],
+        ],
+      },
+      {
+        id: "d-edge",
+        label: "S",
+        role: "DEF",
+        color: "defense",
+        start: [LOS + 4, 44],
+        // edge defender squeezes the alley to force the RB wide
+        path: [
+          [LOS + 4, 44],
+          [LOS + 8, 46],
+          [LOS + 14, 48],
+        ],
+      },
+      {
+        id: "d-cb2",
+        label: "CB",
+        role: "DEF",
+        color: "defense",
+        start: [LOS + 6, 50],
+        // playside corner stays disciplined on the receiver / sets the edge
+        path: [
+          [LOS + 6, 50],
+          [LOS + 8, 50],
+          [LOS + 12, 52],
+        ],
+      },
+      {
+        id: "d-cb1",
+        label: "CB",
+        role: "DEF",
+        color: "defense",
+        start: [LOS + 6, 10],
+        // backside corner holds on the away receiver — no biting on the run
+        path: [
+          [LOS + 6, 10],
+          [LOS + 7, 11],
+          [LOS + 8, 12],
+        ],
+      },
+      {
+        id: "d-s",
+        label: "S",
+        role: "DEF",
+        color: "defense",
+        start: [LOS + 18, 24],
+        // safety flows over the top to clean up
+        path: [
+          [LOS + 18, 24],
+          [LOS + 22, 36],
+          [LOS + 28, 46],
+        ],
+      },
     ],
     steps: [
       {
+        id: "setup",
         title: "1. Setup",
         description:
           "RB lines up beside the QB. X is split wide on the same side. The QB calls the cadence.",
       },
       {
+        id: "snap-and-pivot",
         title: "2. Snap & pivot",
         description:
           "QB catches the snap, pivots, and meets the RB stride for stride to hand the ball off.",
         highlightActors: ["qb", "rb"],
       },
       {
+        id: "get-the-edge",
         title: "3. Get the edge",
         description:
           "RB takes the ball, gets to the sideline FAST, and looks for the alley behind X.",
         highlightActors: ["rb"],
       },
       {
+        id: "up-the-sideline",
         title: "4. Up the sideline",
         description:
           "Once around the corner, turn upfield. Keep your flags clear, take what the defense gives you, and step out of bounds if you cannot beat them.",

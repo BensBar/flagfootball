@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Sparkles, ListChecks, Flag, Map, BookOpen, Megaphone } from "lucide-react";
+import { Menu, X, Sparkles, ListChecks, Flag, Map, BookOpen, Megaphone, Award } from "lucide-react";
 import { Logo } from "./Logo";
 import { LESSONS } from "@/lib/content";
 import { useProgress } from "./ProgressCtx";
@@ -12,6 +12,7 @@ const NAV = [
   { href: "/lessons", label: "Lessons", icon: BookOpen, testid: "nav-lessons" },
   { href: "/gameday", label: "Game Day", icon: Megaphone, testid: "nav-gameday" },
   { href: "/progress", label: "Progress", icon: ListChecks, testid: "nav-progress" },
+  { href: "/exam", label: "Final Exam", icon: Award, testid: "nav-exam" },
 ];
 
 export function Shell({ children }: { children: ReactNode }) {
