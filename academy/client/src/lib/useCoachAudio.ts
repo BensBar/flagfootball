@@ -181,7 +181,7 @@ export function useCoachAudio(): CoachAudio {
       }
 
       // Pre-fetch timing JSON in parallel; non-fatal if it fails.
-      const timingUrl = `/${entry.timing.replace(/^\/+/, "")}`;
+      const timingUrl = `${import.meta.env.BASE_URL}${entry.timing.replace(/^\/+/, "")}`;
       fetch(timingUrl)
         .then((r) => (r.ok ? r.json() : null))
         .then((t: AlignmentTiming | null) => {
@@ -191,7 +191,7 @@ export function useCoachAudio(): CoachAudio {
           /* timing is optional for captions; ignore */
         });
 
-      const mp3Url = `/${entry.mp3.replace(/^\/+/, "")}`;
+      const mp3Url = `${import.meta.env.BASE_URL}${entry.mp3.replace(/^\/+/, "")}`;
       el.src = mp3Url;
       el.playbackRate = playbackRate;
       setMode("audio");

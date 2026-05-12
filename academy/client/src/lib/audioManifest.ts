@@ -35,7 +35,7 @@ export async function loadManifest(): Promise<Manifest | null> {
   if (inflight) return inflight;
   inflight = (async () => {
     try {
-      const res = await fetch("/audio/manifest.json", { cache: "force-cache" });
+      const res = await fetch(`${import.meta.env.BASE_URL}audio/manifest.json`, { cache: "force-cache" });
       if (!res.ok) throw new Error(`manifest ${res.status}`);
       const m = (await res.json()) as Manifest;
       cache = m;
